@@ -99,13 +99,26 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </p>
     <p className="mt-4">一個網址長這樣：</p>
 
-    <UrlBreakdown
-      parts={[
-        { text: "https://", type: "neutral", label: "通訊方式，先不用管" },
-        { text: "www.shopee.tw", type: "safe", label: "門牌：這個網站是誰的" },
-        { text: "/order/detail", type: "neutral", label: "房間號碼：網站裡的哪一頁" },
-      ]}
-    />
+    <div className="my-4 rounded-xl border border-border bg-muted/50 px-4 py-3 font-mono text-base sm:text-lg overflow-x-auto">
+      https://<span className="text-safe font-bold">www.shopee.tw</span>/order/detail
+    </div>
+
+    <p className="mt-4">可以簡單拆成下面幾個部分：</p>
+
+    <div className="my-4 space-y-3">
+      <div className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+        <p className="font-mono text-base text-muted-foreground">https://</p>
+        <p className="text-sm text-muted-foreground mt-1">通訊方式，先不用管</p>
+      </div>
+      <div className="rounded-xl border-2 border-safe/40 bg-safe/5 px-4 py-3">
+        <p className="font-mono text-base text-safe font-bold">www.shopee.tw</p>
+        <p className="text-sm text-foreground mt-1">門牌：這個網站是誰的</p>
+      </div>
+      <div className="rounded-xl border border-border bg-muted/30 px-4 py-3">
+        <p className="font-mono text-base text-muted-foreground">/order/detail</p>
+        <p className="text-sm text-muted-foreground mt-1">房間號碼：網站裡的哪一頁</p>
+      </div>
+    </div>
 
     <p className="mt-4 font-bold text-primary">
       判斷一個網址安不安全，最重要的就是看那個「門牌」。

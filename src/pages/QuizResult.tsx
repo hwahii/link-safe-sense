@@ -91,8 +91,10 @@ const QuizResult = () => {
           <p className="text-xl font-bold text-foreground">你答對了 {score} / 5 題</p>
           <p className="mt-3 text-base text-muted-foreground leading-relaxed">
             {score === 5
-              ? "全對而且每題都知道為什麼？你很厲害。"
-              : "有任何一題猶豫或答錯？很正常，因為從來沒人教過這些。往下看，學會怎麼一眼看出連結能不能點。"}
+              ? "🎉 太厲害了，全部答對！你已經具備分辨詐騙連結的基本能力。下面的課程可以幫你更深入理解背後的原理。"
+              : score >= 3
+              ? "👍 表現得不錯！有幾題比較容易混淆，看看下面的詳解，下次就不會再猶豫了。"
+              : "沒關係，這些本來就不容易分辨。好消息是，只要花幾分鐘看完下面的說明，你馬上就會知道怎麼判斷。"}
           </p>
         </div>
 

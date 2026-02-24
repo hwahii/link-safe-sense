@@ -524,9 +524,24 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         <div className="mt-2 ml-6 p-4 rounded-lg bg-muted/50 border border-border text-sm space-y-3">
           <p>如果你真的很想知道縮網址背後是什麼，可以把網址貼給 <strong>ChatGPT</strong> 或 <strong>Claude</strong> 這類 AI 工具，請它幫你展開。</p>
           <p>你可以直接複製這段話去問：</p>
-          <div className="px-3 py-2 rounded-md bg-background border border-border font-mono text-sm leading-relaxed">
-            請幫我展開這個縮網址，告訴我它真正的網址是什麼：<br />
-            <span className="text-muted-foreground">（把縮網址貼在這裡）</span>
+          <div className="relative group">
+            <div className="px-3 py-2 pr-10 rounded-md bg-background border border-border font-mono text-sm leading-relaxed">
+              請幫我展開這個縮網址，告訴我它真正的網址是什麼：<br />
+              <span className="text-muted-foreground">（把縮網址貼在這裡）</span>
+            </div>
+            <button
+              type="button"
+              className="absolute top-2 right-2 p-1.5 rounded-md text-muted-foreground hover:text-foreground hover:bg-muted transition-colors cursor-pointer"
+              onClick={() => {
+                navigator.clipboard.writeText("請幫我展開這個縮網址，告訴我它真正的網址是什麼：");
+                const btn = document.getElementById("copy-prompt-btn");
+                if (btn) { btn.textContent = "✓"; setTimeout(() => { btn.textContent = ""; btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>'; }, 1500); }
+              }}
+              id="copy-prompt-btn"
+              aria-label="複製提示詞"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            </button>
           </div>
           <p>AI 沒辦法保證那個網站是安全的，但至少能讓你<strong>看到門牌</strong>，然後你就能用前面學的技巧來判斷。</p>
         </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
@@ -13,6 +13,11 @@ const Lesson = () => {
   const { id } = useParams<{ id: string }>();
   const lessonId = parseInt(id || "1");
   const [quizDone, setQuizDone] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setQuizDone(false);
+  }, [lessonId]);
 
   const nextLesson = lessonId < 7 ? `/lesson/${lessonId + 1}` : null;
 

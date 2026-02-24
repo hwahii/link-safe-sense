@@ -11,7 +11,7 @@ const Index = () => {
             <Shield className="w-8 h-8 text-primary" />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-6">
-            你知道怎麼分辨<br />詐騙連結嗎？
+            快速學會<br />分辨詐騙連結
           </h1>
         </div>
 

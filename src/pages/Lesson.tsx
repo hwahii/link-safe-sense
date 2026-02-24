@@ -454,7 +454,7 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，「shopee」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 shopee 的頁面。</p>
 
     <KeyTakeaway>
-      品牌名稱要出現在斜線「前面」才算數。出現在斜線「後面」的不代表任何東西。
+      品牌名稱出現在門牌裡才算數。出現在路徑（房間）裡的不代表任何東西，任何人都能取。
     </KeyTakeaway>
 
     <PracticeSection>

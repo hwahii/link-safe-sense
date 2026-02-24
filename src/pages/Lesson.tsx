@@ -466,7 +466,7 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">shopee.tw</span>，這是蝦皮的網站。</p>
     <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，這是不明網站。</p>
     <p className="mt-4">在門牌後面的第一個 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">/</code> 之後的文字，都是「頁面路徑」，你可以想成大樓裡的樓層、房間。而這些樓層房間的名稱完全都是網站主人可以自己命名的。</p>
-    <p className="mt-3">所以 B 選項的「shopee」出現在斜線後面，是不能代表「這是蝦皮正牌網站」的。</p>
+    <p className="mt-3">所以 B 選項的「shopee」出現在斜線後面，並不能代表「這是蝦皮正牌網站」，要注意囉！</p>
 
     <KeyTakeaway>
       品牌名稱出現在門牌裡才算數。出現在路徑（房間）裡的不代表任何東西，任何人都能取。

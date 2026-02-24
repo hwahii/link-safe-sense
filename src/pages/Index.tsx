@@ -40,7 +40,7 @@ const Index = () => {
             <Shield className="w-8 h-8 text-primary" />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-foreground leading-tight mb-6">
-            快速學會<br />分辨詐騙連結
+            馬上看穿！<br />簡單學會分辨詐騙連結
           </h1>
         </div>
 

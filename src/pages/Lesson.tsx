@@ -336,7 +336,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 4 ======
 const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>詐騙不只會用假的結尾，還會在品牌名稱上動手腳。常見的手法有：</p>
+    <p>詐騙不只會用假開頭、假結尾，還會在品牌名稱上動手腳。常見的手法有：</p>
 
     <div className="my-6 space-y-4">
       <div>

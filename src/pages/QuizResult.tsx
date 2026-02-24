@@ -25,7 +25,7 @@ const questions = [
     optionB: "https://www.cathaybk.xyz/login",
     correctAnswer: "A",
     explanation:
-      "兩個網址前面都寫著 cathaybk（國泰世華），差別在結尾。.com.tw 是台灣正式註冊的網域，銀行、企業都會用。.xyz 是非常便宜、任何人都能隨手註冊的網域，正規機構幾乎不會使用。看到 .xyz、.top、.click 這類結尾，要特別小心。",
+      "兩個網址前面都寫著 cathaybk（國泰世華），差別在結尾。.com.tw 是台灣正式註冊的網域，銀行、企業都會用。.xyz 雖然是正常的後綴（很多獨立開發者、新創公司也在用），但台灣的正規銀行不會使用這類不需審核的後綴。當聲稱是銀行的網站卻用了 .xyz、.top、.click 這類結尾，就要提高警覺。",
     lessonLink: `/lesson/${LESSON_SLUGS[2]}`,
   },
   {

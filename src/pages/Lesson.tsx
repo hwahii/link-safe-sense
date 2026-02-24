@@ -246,21 +246,21 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       注意：單獨的 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code> 不需要這些審核，任何人都能向網域商購買，所以不能光看到 .tw 就覺得安全。
     </p>
 
-    <p className="mt-4">但有些結尾非常便宜，任何人都能隨手註冊：</p>
+    <p className="mt-4">還有些結尾價格便宜、任何人都能註冊，不需要任何審核：</p>
 
     <div className="my-4 grid grid-cols-2 gap-2">
       {[".xyz", ".top", ".click", ".info"].map((suffix) => (
-        <div key={suffix} className="flex items-center justify-center px-4 py-2 rounded-xl bg-danger/10 border border-danger/20">
-          <span className="font-mono font-bold text-danger">{suffix}</span>
+        <div key={suffix} className="flex items-center justify-center px-4 py-2 rounded-xl bg-neutral/10 border border-neutral/20">
+          <span className="font-mono font-bold text-neutral">{suffix}</span>
         </div>
       ))}
     </div>
-    <p className="text-sm text-muted-foreground -mt-2 mb-4">這些結尾便宜又不需要審核，詐騙網站很愛用。</p>
+    <p className="text-sm text-muted-foreground -mt-2 mb-4">這些結尾本身不代表詐騙——很多獨立開發者、新創公司也會使用。但因為註冊門檻低，詐騙網站也經常利用它們來冒充正規機構。</p>
 
     <KeyTakeaway
-      action={<>看到 <span className="font-mono font-semibold text-foreground">.com.tw</span> 或 <span className="font-mono font-semibold text-foreground">.gov.tw</span> 結尾，可信度較高；看到 <span className="font-mono font-semibold text-foreground">.top</span>、<span className="font-mono font-semibold text-foreground">.xyz</span> 這類結尾，要提高警覺。</>}
+      action={<>看到 <span className="font-mono font-semibold text-foreground">.com.tw</span> 或 <span className="font-mono font-semibold text-foreground">.gov.tw</span> 結尾，可信度較高；看到 <span className="font-mono font-semibold text-foreground">.top</span>、<span className="font-mono font-semibold text-foreground">.xyz</span> 這類結尾聲稱是銀行或政府網站，就要提高警覺。</>}
     >
-      台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。
+      重點不是後綴本身有問題，而是台灣的正規銀行、政府機關會使用有審核機制的結尾（如 .com.tw、.gov.tw），不會用這些不需審核的後綴。
     </KeyTakeaway>
 
     <PracticeSection>
@@ -276,8 +276,8 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
           { label: "B", text: "不可信，因為結尾是 .top" },
         ]}
         correctAnswer="B"
-        correctFeedback=".top 是任何人都能便宜註冊的網域後綴。正規的台灣銀行會使用 .com.tw，不會用 .top。"
-        wrongFeedback="沒關係！.top 是任何人都能便宜註冊的網域後綴。正規的台灣銀行會使用 .com.tw，不會用 .top。"
+        correctFeedback=".top 本身不是壞的後綴，但正規的台灣銀行會使用 .com.tw，不會用 .top。當你看到銀行網址用了這類後綴，就要提高警覺。"
+        wrongFeedback="沒關係！.top 本身不是壞的後綴，但正規的台灣銀行會使用 .com.tw，不會用 .top。當你看到銀行網址用了這類後綴，就要提高警覺。"
         onComplete={onQuizDone}
       />
     </PracticeSection>

@@ -23,7 +23,7 @@ const questions = [
     correctAnswer: "A",
     explanation:
       "你可能看到 B 裡面也有「shopee.tw」就覺得是蝦皮。但網址就像門牌地址，真正代表「這是誰家」的是最後面那一段。B 的主人其實是 order-check.net，前面的 shopee.tw 只是裝飾，就像有人在自家門口掛了蝦皮的招牌，但那不是蝦皮的店。",
-    lessonLink: "/lesson/2",
+    lessonLink: "/lesson/3",
   },
   {
     id: 2,
@@ -34,7 +34,7 @@ const questions = [
     correctAnswer: "A",
     explanation:
       "兩個網址前面都寫著 cathaybk（國泰世華），差別在結尾。.com.tw 是台灣正式註冊的網域，銀行、企業都會用。.xyz 是非常便宜、任何人都能隨手註冊的網域，正規機構幾乎不會使用。看到 .xyz、.top、.click 這類結尾，要特別小心。",
-    lessonLink: "/lesson/3",
+    lessonLink: "/lesson/2",
   },
   {
     id: 3,

@@ -48,7 +48,7 @@ const Lesson = () => {
     "",
     "網址是什麼？",
     "認識門牌的結尾",
-    "怎麼找到門牌？",
+    "子網域：園區與大樓",
     "假門牌長得跟真的很像",
     "品牌名稱出現在哪裡很重要",
     "看不到門牌怎麼辦？",
@@ -257,36 +257,59 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   </div>
 );
 
-// ====== Lesson 3 (怎麼找到門牌？) ======
+// ====== Lesson 3 (子網域：園區與大樓) ======
 const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>門牌就是網址裡面，https:// 後面、第一個 / 前面的那一段。</p>
+    <p>上一篇我們學到網址的結尾（門牌）怎麼看。這篇要進一步認識網址的「結構」——我們用一個比喻來理解。</p>
+
+    <h3 className="text-lg font-bold mt-6 mb-2">🏗️ 把網址想像成一座園區</h3>
+    <p>每個網站就像一座園區，裡面有土地、大樓、還有房間：</p>
+
+    <div className="my-5 space-y-3 text-sm">
+      <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+        <span className="text-lg">🌍</span>
+        <div><span className="font-bold">土地（網域）</span>＝園區的地址，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">shopee.tw</code>。這塊地的主人就是蝦皮。</div>
+      </div>
+      <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+        <span className="text-lg">🏢</span>
+        <div><span className="font-bold">大樓（子網域）</span>＝園區裡的獨立建築，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mall.</code>shopee.tw 就是蝦皮園區裡的「商城大樓」。</div>
+      </div>
+      <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
+        <span className="text-lg">🚪</span>
+        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 shopee.tw<code className="font-mono bg-muted px-1.5 py-0.5 rounded">/order/detail</code>。</div>
+      </div>
+    </div>
+
+    <p>用這個概念來看一個正常的網址：</p>
 
     <UrlBreakdown
       parts={[
         { text: "https://", type: "neutral" },
-        { text: "www.shopee.tw", type: "safe", label: "← 這就是門牌" },
-        { text: "/order/detail", type: "neutral" },
+        { text: "mall.", type: "neutral", label: "大樓（子網域）" },
+        { text: "shopee.tw", type: "safe", label: "← 土地（網域）" },
+        { text: "/event/sale", type: "neutral", label: "房間（路徑）" },
       ]}
     />
 
-    <p className="mt-4">但詐騙網址會故意讓你搞混。看這個：</p>
+    <p className="mt-4">不管大樓叫什麼名字，只要土地是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">shopee.tw</code>，就代表這塊地屬於蝦皮 ✅</p>
+
+    <h3 className="text-lg font-bold mt-8 mb-2">⚠️ 詐騙怎麼利用這個結構？</h3>
+    <p>詐騙會在別人的土地上，把大樓取名成知名品牌的名字，讓你以為是正牌的：</p>
 
     <UrlBreakdown
       parts={[
         { text: "https://", type: "neutral" },
-        { text: "shopee.tw.", type: "danger", label: "裝飾，不是真正的主人" },
-        { text: "order-check.net", type: "danger", label: "← 這才是真正的主人" },
+        { text: "shopee.tw.", type: "danger", label: "假大樓（裝成蝦皮）" },
+        { text: "order-check.net", type: "danger", label: "← 真正的土地主人" },
         { text: "/detail", type: "neutral" },
       ]}
     />
 
-    <p className="mt-4">規則很簡單：門牌看「最後一個點」的前後。</p>
-    <ul className="mt-3 space-y-2">
-      <li className="text-safe font-medium">• shopee.tw → 主人是 shopee，在 .tw（台灣）✅</li>
-      <li className="text-danger font-medium">• shopee.tw.order-check.net → 主人是 order-check，在 .net ❌</li>
-    </ul>
-    <KeyTakeaway>不管前面塞了什麼，最後那一段才是真正的主人。</KeyTakeaway>
+    <p className="mt-4">看起來有「shopee.tw」的字樣，但它只是大樓名稱。真正的土地主人是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-danger">order-check.net</code> ——跟蝦皮一點關係都沒有。</p>
+
+    <KeyTakeaway action={<>判斷方式：找到最後一個點和結尾之間的那段，那才是土地主人。前面不管塞了什麼，都只是大樓名稱。</>}>
+      大樓可以隨便取名，但土地的主人才是關鍵。看網址時，永遠先確認土地（網域）是誰的。
+    </KeyTakeaway>
 
     <PracticeSection>
       <LineChat
@@ -296,14 +319,14 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         ]}
       />
       <LessonQuiz
-        question="這個網址的主人是誰？"
+        question="這個網址的土地主人是誰？"
         options={[
           { label: "A", text: "shopee.tw（蝦皮）" },
           { label: "B", text: "special-sale.net" },
         ]}
         correctAnswer="B"
-        correctFeedback="看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
-        wrongFeedback="沒關係！看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
+        correctFeedback="沒錯！shopee.tw 只是大樓名稱（子網域），真正的土地是 special-sale.net。這不是蝦皮的網站。"
+        wrongFeedback="注意看土地（網域）！shopee.tw 只是大樓名稱（子網域），真正的土地是 special-sale.net。這不是蝦皮的網站。"
         onComplete={onQuizDone}
       />
     </PracticeSection>

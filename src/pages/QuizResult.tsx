@@ -149,9 +149,14 @@ const QuizResult = () => {
           })}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 flex flex-col gap-3">
+          <Link to="/quiz">
+            <Button size="lg" variant="outline" className="w-full text-lg py-6 rounded-xl font-bold border-2">
+              重新測驗
+            </Button>
+          </Link>
           <Link to="/lesson/1">
-            <Button size="lg" className="text-lg py-6 px-8 rounded-xl font-bold">
+            <Button size="lg" className="w-full text-lg py-6 rounded-xl font-bold">
               從頭開始學習
             </Button>
           </Link>

@@ -3,6 +3,7 @@ import LessonNav from "@/components/LessonNav";
 import { ArrowRight } from "lucide-react";
 import { LESSON_TITLES } from "@/constants/lessons";
 import PageSEO from "@/components/PageSEO";
+import Footer from "@/components/Footer";
 
 const lessonList = Object.entries(LESSON_TITLES).map(([id, title]) => ({
   id: Number(id),
@@ -40,6 +41,7 @@ const Lessons = () => {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 };

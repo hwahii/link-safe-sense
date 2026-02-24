@@ -3,6 +3,7 @@ import { CheckCircle, XCircle, ArrowRight, TrendingUp, TrendingDown } from "luci
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import PageSEO from "@/components/PageSEO";
+import Footer from "@/components/Footer";
 
 interface QuizResultState {
   answers: string[];
@@ -254,6 +255,7 @@ const QuizResult = () => {
         </div>
       </div>
     </main>
+    <Footer />
     </>
   );
 };

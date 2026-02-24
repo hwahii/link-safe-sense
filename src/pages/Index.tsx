@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Shield, BookOpen } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   const [hasHistory, setHasHistory] = useState(false);
@@ -69,6 +70,7 @@ const Index = () => {
         </div>
       </div>
     </main>
+    <Footer />
     </>
   );
 };

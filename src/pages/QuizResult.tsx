@@ -143,6 +143,7 @@ const QuizResult = () => {
       return "沒關係，這些本來就不容易分辨。好消息是，只要花幾分鐘看完下面的說明，你馬上就會知道怎麼判斷。";
     }
     const diff = score - previous.score;
+    if (score === 5) return "🏆 滿分！恭喜你掌握辨識詐騙連結的技巧了！";
     if (diff > 0) return `📈 進步了！比上次多對了 ${diff} 題，繼續保持！`;
     if (diff === 0 && score === 5) return "🎉 又是滿分！你對詐騙連結的判斷力很穩固。";
     if (diff === 0) return "跟上次一樣的分數，再看看下面哪些地方可以加強。";

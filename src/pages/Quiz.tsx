@@ -157,20 +157,22 @@ const Quiz = () => {
                 }`}
               >
                 <span className="flex items-center gap-3">
-                  <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm shrink-0 ${
+                  <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full shrink-0 ${
                     isCorrectOption
                       ? "bg-safe/15 text-safe"
                       : isWrongSelection
                       ? "bg-danger/15 text-danger"
                       : "bg-primary/10 text-primary"
                   }`}>
-                    {opt}
+                    {isCorrectOption
+                      ? <CheckCircle className="w-5 h-5" />
+                      : isWrongSelection
+                      ? <XCircle className="w-5 h-5" />
+                      : <span className="font-bold text-sm">{opt}</span>}
                   </span>
                   <span className={`leading-relaxed break-all ${isUrl(text) ? "font-mono text-sm" : "text-base"}`}>
                     {text}
                   </span>
-                  {isCorrectOption && <CheckCircle className="w-5 h-5 text-safe shrink-0 ml-auto" />}
-                  {isWrongSelection && <XCircle className="w-5 h-5 text-danger shrink-0 ml-auto" />}
                 </span>
               </button>
             );

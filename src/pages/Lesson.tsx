@@ -453,6 +453,8 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">shopee.tw</span>，這是蝦皮自己的網站。</p>
     <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，「shopee」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 shopee 的頁面。</p>
 
+    <p className="mt-4">怎麼分辨？找到門牌後面的第一個 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">/</code>，前面的是門牌，後面的都只是房間名稱。</p>
+
     <KeyTakeaway>
       品牌名稱出現在門牌裡才算數。出現在路徑（房間）裡的不代表任何東西，任何人都能取。
     </KeyTakeaway>

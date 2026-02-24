@@ -59,6 +59,9 @@ const Quiz = () => {
   const progress = ((currentIndex) / questions.length) * 100;
 
   const handleAnswer = (answer: "A" | "B") => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
     const newAnswers = [...answers.slice(0, currentIndex), answer];
     setAnswers(newAnswers);
 
@@ -133,7 +136,7 @@ const Quiz = () => {
               <button
                 key={`${currentIndex}-${opt}`}
                 onClick={() => handleAnswer(opt)}
-                className="w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 border-border bg-white hover:border-primary hover:bg-primary/5 transition-all"
+                className="w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 border-border bg-white [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/5 active:border-primary active:bg-primary/5 transition-all"
               >
                 <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm shrink-0">

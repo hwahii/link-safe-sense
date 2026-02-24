@@ -22,6 +22,8 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
               <td key={i} className="p-0 align-bottom">
                 <span
                   className={`font-mono text-base sm:text-lg whitespace-nowrap inline-block px-0.5 py-0.5 rounded ${
+                    part.label ? "border-b-2 border-muted-foreground/30 pb-1" : ""
+                  } ${
                     part.type === "safe"
                       ? "bg-safe/15 text-safe"
                       : part.type === "danger"
@@ -39,7 +41,7 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
             {parts.map((part, i) => (
               <td key={i} className="p-0 pt-1 align-top text-center">
                 {part.label && (
-                  <span className="flex flex-col items-center font-sans before:content-[''] before:block before:w-px before:h-2 before:bg-muted-foreground/30 before:mx-auto before:mb-0.5">
+                  <span className="flex flex-col items-center font-sans">
                     <span className="text-sm text-muted-foreground leading-snug">{part.label}</span>
                     {part.sublabel && (
                       <span className="text-sm text-muted-foreground/70 leading-snug">{part.sublabel}</span>

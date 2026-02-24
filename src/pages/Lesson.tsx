@@ -521,8 +521,13 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         進階技巧：用 AI 工具幫你看門牌
       </CollapsibleTrigger>
       <CollapsibleContent>
-        <div className="mt-2 ml-6 p-4 rounded-lg bg-muted/50 border border-border text-sm space-y-2">
+        <div className="mt-2 ml-6 p-4 rounded-lg bg-muted/50 border border-border text-sm space-y-3">
           <p>如果你真的很想知道縮網址背後是什麼，可以把網址貼給 <strong>ChatGPT</strong> 或 <strong>Claude</strong> 這類 AI 工具，請它幫你展開。</p>
+          <p>你可以直接複製這段話去問：</p>
+          <div className="px-3 py-2 rounded-md bg-background border border-border font-mono text-sm leading-relaxed">
+            請幫我展開這個縮網址，告訴我它真正的網址是什麼：<br />
+            <span className="text-muted-foreground">（把縮網址貼在這裡）</span>
+          </div>
           <p>AI 沒辦法保證那個網站是安全的，但至少能讓你<strong>看到門牌</strong>，然後你就能用前面學的技巧來判斷。</p>
         </div>
       </CollapsibleContent>

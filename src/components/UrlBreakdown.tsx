@@ -11,66 +11,46 @@ interface UrlBreakdownProps {
   parts: UrlPart[];
 }
 
-// Merge unlabeled parts into the next labeled group
-function groupParts(parts: UrlPart[]): { segments: UrlPart[]; label?: string; sublabel?: string }[] {
-  const groups: { segments: UrlPart[]; label?: string; sublabel?: string }[] = [];
-  let buffer: UrlPart[] = [];
-
-  for (const part of parts) {
-    if (part.label) {
-      groups.push({ segments: [...buffer, part], label: part.label, sublabel: part.sublabel });
-      buffer = [];
-    } else {
-      buffer.push(part);
-    }
-  }
-  if (buffer.length) {
-    if (groups.length) {
-      groups[groups.length - 1].segments.push(...buffer);
-    } else {
-      groups.push({ segments: buffer });
-    }
-  }
-  return groups;
-}
-
 const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
-  const groups = groupParts(parts);
-
   return (
     <div className="my-6 rounded-xl border border-border bg-muted/50 p-4 overflow-x-auto">
-      <div className="inline-flex items-start gap-0">
-        {groups.map((group, i) => (
-          <div key={i} className="flex flex-col items-center">
-            {/* URL segments */}
-            <span className="font-mono text-base sm:text-lg whitespace-nowrap">
-              {group.segments.map((seg, j) => (
+      <table className="border-collapse">
+        <tbody>
+          {/* URL row */}
+          <tr>
+            {parts.map((part, i) => (
+              <td key={i} className="p-0 align-bottom">
                 <span
-                  key={j}
-                  className={`inline px-0.5 py-0.5 rounded ${
-                    seg.type === "safe"
+                  className={`font-mono text-base sm:text-lg whitespace-nowrap inline-block px-0.5 py-0.5 rounded ${
+                    part.type === "safe"
                       ? "bg-safe/15 text-safe"
-                      : seg.type === "danger"
+                      : part.type === "danger"
                       ? "bg-danger/15 text-danger font-bold"
                       : "text-neutral"
                   }`}
                 >
-                  {seg.text}
+                  {part.text}
                 </span>
-              ))}
-            </span>
-            {/* Label - two lines */}
-            {group.label && (
-              <span className="flex flex-col items-center mt-1.5 font-sans">
-                <span className="text-sm text-muted-foreground leading-snug">{group.label}</span>
-                {group.sublabel && (
-                  <span className="text-xs text-muted-foreground/70 leading-snug">{group.sublabel}</span>
+              </td>
+            ))}
+          </tr>
+          {/* Label row */}
+          <tr>
+            {parts.map((part, i) => (
+              <td key={i} className="p-0 pt-1.5 align-top text-center">
+                {part.label && (
+                  <span className="flex flex-col items-center font-sans">
+                    <span className="text-sm text-muted-foreground leading-snug">{part.label}</span>
+                    {part.sublabel && (
+                      <span className="text-xs text-muted-foreground/70 leading-snug">{part.sublabel}</span>
+                    )}
+                  </span>
                 )}
-              </span>
-            )}
-          </div>
-        ))}
-      </div>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 };

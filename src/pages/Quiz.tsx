@@ -53,20 +53,26 @@ const questions: QuizQuestion[] = [
 const Quiz = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [selectedAnswer, setSelectedAnswer] = useState<"A" | "B" | null>(null);
   const navigate = useNavigate();
 
   const current = questions[currentIndex];
   const progress = ((currentIndex) / questions.length) * 100;
 
   const handleAnswer = (answer: "A" | "B") => {
+    if (selectedAnswer) return;
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
+    setSelectedAnswer(answer);
     const newAnswers = [...answers.slice(0, currentIndex), answer];
     setAnswers(newAnswers);
 
     if (currentIndex < questions.length - 1) {
-      setTimeout(() => setCurrentIndex(currentIndex + 1), 300);
+      setTimeout(() => {
+        setSelectedAnswer(null);
+        setCurrentIndex(currentIndex + 1);
+      }, 800);
     } else {
       const score = newAnswers.reduce((acc, ans, idx) => {
         return acc + (ans === questions[idx].correctAnswer ? 1 : 0);
@@ -89,7 +95,7 @@ const Quiz = () => {
 
       setTimeout(() => {
         navigate("/quiz/result", { state: { answers: newAnswers, score } });
-      }, 300);
+      }, 800);
     }
   };
 
@@ -132,11 +138,17 @@ const Quiz = () => {
         <div className="space-y-4">
           {(["A", "B"] as const).map((opt) => {
             const text = opt === "A" ? current.optionA : current.optionB;
+            const isSelected = selectedAnswer === opt;
             return (
               <button
                 key={`${currentIndex}-${opt}`}
                 onClick={() => handleAnswer(opt)}
-                className="w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 border-border bg-white [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/5 active:border-primary active:bg-primary/5 transition-all"
+                disabled={selectedAnswer !== null}
+                className={`w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 transition-all ${
+                  isSelected
+                    ? "border-primary bg-primary/5"
+                    : "border-border bg-white [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/5 active:border-primary active:bg-primary/5"
+                }`}
               >
                 <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm shrink-0">

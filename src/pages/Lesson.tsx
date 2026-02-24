@@ -21,9 +21,9 @@ const Lesson = () => {
       case 1:
         return <Lesson1 onQuizDone={() => setQuizDone(true)} />;
       case 2:
-        return <Lesson2 onQuizDone={() => setQuizDone(true)} />;
-      case 3:
         return <Lesson3 onQuizDone={() => setQuizDone(true)} />;
+      case 3:
+        return <Lesson2 onQuizDone={() => setQuizDone(true)} />;
       case 4:
         return <Lesson4 onQuizDone={() => setQuizDone(true)} />;
       case 5:
@@ -40,8 +40,8 @@ const Lesson = () => {
   const titles = [
     "",
     "網址是什麼？",
-    "怎麼找到門牌？",
     "認識門牌的結尾",
+    "怎麼找到門牌？",
     "假門牌長得跟真的很像",
     "品牌名稱出現在哪裡很重要",
     "看不到門牌怎麼辦？",

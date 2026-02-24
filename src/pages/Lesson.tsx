@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { LESSON_TITLES } from "@/constants/lessons";
+import { LESSON_TITLES, LESSON_READING_TIME } from "@/constants/lessons";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
@@ -68,6 +68,7 @@ const Lesson = () => {
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
             第 {lessonId} 篇：{titles[lessonId]}
           </h1>
+          <p className="text-sm text-muted-foreground mb-6">⏱ 閱讀時間約 {LESSON_READING_TIME[lessonId] ?? 3} 分鐘</p>
           <div className="h-1 w-16 bg-primary rounded-full mb-8" />
 
           {renderContent()}

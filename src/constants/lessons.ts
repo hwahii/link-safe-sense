@@ -8,4 +8,15 @@ export const LESSON_TITLES: Record<number, string> = {
   7: "電子郵件也是一樣的道理",
 };
 
+/** 預估閱讀時間（分鐘） */
+export const LESSON_READING_TIME: Record<number, number> = {
+  1: 2,
+  2: 3,
+  3: 3,
+  4: 2,
+  5: 3,
+  6: 3,
+  7: 2,
+};
+
 export const TOTAL_LESSONS = Object.keys(LESSON_TITLES).length;

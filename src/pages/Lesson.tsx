@@ -149,11 +149,10 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 2 (認識門牌的結尾) ======
 const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>上一篇你學會了找「門牌」。但光找到門牌還不夠，你還要會看門牌的「結尾」。</p>
-    <p className="mt-4">門牌的結尾叫做「後綴」，它能告訴你這個網站是什麼類型的機構。</p>
+    <p>上一篇你學會了找「門牌」。這一篇來看門牌的「結尾」——它能告訴你這個網站是什麼類型的機構。</p>
 
-    <p className="mt-6 font-bold text-lg">🏛️ 機構後綴</p>
-    <p className="mt-2">這些後綴代表網站的類型，有些不是想註冊就能註冊的：</p>
+    <p className="mt-6 font-bold text-lg">🏛️ 機構結尾</p>
+    <p className="mt-2">門牌的結尾代表網站的類型，有些不是想註冊就能註冊的：</p>
 
     <div className="my-4 space-y-2">
       {[
@@ -171,11 +170,11 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       ))}
     </div>
 
-    <p className="mt-6 font-bold text-lg">🌏 國家後綴</p>
+    <p className="mt-6 font-bold text-lg">🌏 國家結尾</p>
     <p className="mt-2">
-      後綴還可以加上國家代碼，代表這個網站在哪個國家註冊。台灣的國家代碼是 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code>。
+      門牌結尾還可以加上國家代碼，代表這個網站在哪個國家註冊。台灣的國家代碼是 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code>。
     </p>
-    <p className="mt-2">跟機構後綴組合起來，就變成：</p>
+    <p className="mt-2">跟機構結尾組合起來，就變成：</p>
 
     <div className="my-4 space-y-2">
       {[
@@ -194,21 +193,21 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </div>
 
     <p className="mt-4">
-      台灣的後綴（<code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code> 結尾）都需要經過審核，不是任何人想註冊就能註冊的。所以看到 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.com.tw</code> 或 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.gov.tw</code>，可信度會比較高。
+      這些帶有 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code> 的組合結尾都需要經過審核，不是任何人想註冊就能拿到的。所以看到 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.com.tw</code> 或 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.gov.tw</code>，可信度會比較高。
     </p>
 
-    <p className="mt-4">但有些後綴非常便宜，任何人都能隨手註冊：</p>
+    <p className="mt-4">但有些結尾非常便宜，任何人都能隨手註冊：</p>
 
-    <div className="my-4 space-y-2">
+    <div className="my-4 grid grid-cols-2 gap-2">
       {[".xyz", ".top", ".click", ".info"].map((suffix) => (
-        <div key={suffix} className="flex items-center gap-3 px-4 py-2 rounded-xl bg-danger/10 border border-danger/20">
+        <div key={suffix} className="flex items-center justify-center px-4 py-2 rounded-xl bg-danger/10 border border-danger/20">
           <span className="font-mono font-bold text-danger">{suffix}</span>
-          <span className="text-foreground">便宜，任何人都能註冊</span>
         </div>
       ))}
     </div>
+    <p className="text-sm text-muted-foreground -mt-2 mb-4">這些結尾便宜又不需要審核，詐騙網站很愛用。</p>
 
-    <p className="mt-4 font-bold text-primary">重點：台灣的正規機構會使用有審核機制的後綴，不會用便宜的門牌結尾。</p>
+    <p className="mt-4 font-bold text-primary">重點：台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。</p>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>

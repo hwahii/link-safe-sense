@@ -68,7 +68,7 @@ const Lesson = () => {
           "isPartOf": {
             "@type": "Course",
             "name": "學會分辨詐騙連結",
-            "description": "七篇教學帶你學會看懂網址門牌、分辨詐騙連結。",
+            "description": "七篇簡易教學帶你學會看懂網址門牌、分辨詐騙連結。",
           },
         }}
       />

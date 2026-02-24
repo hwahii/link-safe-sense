@@ -20,7 +20,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "學會分辨詐騙連結",
-    "description": "不用懂電腦，七篇教學帶你學會看懂網址門牌、分辨詐騙連結。",
+    "description": "不用懂電腦，七篇簡易教學帶你學會看懂網址門牌、分辨詐騙連結。",
     "url": "https://learnurl.hwahii.tw",
     "inLanguage": "zh-Hant",
   };
@@ -28,8 +28,8 @@ const Index = () => {
   return (
     <>
     <PageSEO
-      title="學會分辨詐騙連結｜七篇教學"
-      description="不用懂電腦，七篇教學帶你學會看懂網址門牌、分辨詐騙連結。適合所有年齡層，完全免費。"
+      title="學會分辨詐騙連結｜七篇簡易教學"
+      description="不用懂電腦，七篇簡易教學帶你學會看懂網址門牌、分辨詐騙連結。適合所有年齡層，完全免費。"
       path="/"
       jsonLd={websiteJsonLd}
     />

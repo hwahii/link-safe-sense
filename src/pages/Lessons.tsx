@@ -15,7 +15,7 @@ const Lessons = () => {
     <>
       <PageSEO
         title="課程列表"
-        description="七篇圖解教學，從網址基礎到電子郵件門牌，完整學會分辨詐騙連結。"
+        description="七篇教學，從網址基礎到電子郵件門牌，完整學會分辨詐騙連結。"
         path="/lessons"
       />
       <LessonNav />

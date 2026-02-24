@@ -168,8 +168,17 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <KeyTakeaway>
-      判斷一個網址安不安全，最重要的就是看那個「門牌」。
+    <p className="mt-4">
+      詐騙網站之所以能騙到人，就是因為大多數人從來不會仔細看網址。它們會把網址做得很像真的，讓你一不注意就點進去。
+    </p>
+    <p className="mt-4">
+      但只要你知道門牌在哪裡、怎麼看，就已經比大多數人更難被騙了。接下來幾篇，我們會一步步教你怎麼判斷門牌是真是假。
+    </p>
+
+    <KeyTakeaway
+      action={<>收到任何連結時，先找到門牌的位置。門牌在 <code className="font-mono bg-primary/5 px-1 py-0.5 rounded">https://</code> 後面、第一個 <code className="font-mono bg-primary/5 px-1 py-0.5 rounded">/</code> 前面的那一段。</>}
+    >
+      網址裡最重要的就是「門牌」，它告訴你這個網站是誰的。看懂門牌，就是防詐的第一步。
     </KeyTakeaway>
 
     <PracticeSection>

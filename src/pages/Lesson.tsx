@@ -268,15 +268,15 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         <div>
           <span className="font-bold">大樓（子網域）</span>＝園區裡的獨立建築，同一塊土地上可以有好幾棟：
           <ul className="mt-2 space-y-1 list-disc list-inside text-muted-foreground">
-            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.</code>google.com → Gmail（郵件大樓）</li>
-            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">maps.</code>google.com → Google Maps（地圖大樓）</li>
-            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">drive.</code>google.com → Google Drive（雲端硬碟大樓）</li>
+            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.google.com</code> → Gmail（郵件大樓）</li>
+            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">maps.google.com</code> → Google Maps（地圖大樓）</li>
+            <li><code className="font-mono bg-muted px-1.5 py-0.5 rounded">drive.google.com</code> → Google Drive（雲端硬碟大樓）</li>
           </ul>
         </div>
       </div>
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
         <span className="text-lg">🚪</span>
-        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 mail.google.com<code className="font-mono bg-muted px-1.5 py-0.5 rounded">/mail/#inbox</code> 就是郵件大樓裡的「收件匣」。</div>
+        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.google.com/mail/#inbox</code> 就是郵件大樓裡的「收件匣」。</div>
       </div>
     </div>
 

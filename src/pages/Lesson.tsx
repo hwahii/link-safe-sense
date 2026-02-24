@@ -81,7 +81,7 @@ const Lesson = () => {
             </div>
           )}
           {!nextLesson && quizDone && (
-            <div className="mt-8 text-center space-y-4">
+            <div className="mt-16 text-center space-y-6">
               <p className="text-lg font-bold text-primary">🎉 恭喜你完成所有課程！</p>
               <Link to="/quiz">
                 <Button size="lg" className="text-lg py-6 px-8 rounded-xl font-bold">

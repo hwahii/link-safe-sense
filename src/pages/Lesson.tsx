@@ -575,8 +575,8 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 7 ======
 const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>你學會了看網址的門牌，信箱其實用的是同一套邏輯。</p>
-    <p className="mt-4">信箱地址長這樣：</p>
+    <p>你學會了看網址的門牌，電子郵件其實用的是同一套邏輯。</p>
+    <p className="mt-4">電子郵件地址長這樣：</p>
 
     <UrlBreakdown
       parts={[

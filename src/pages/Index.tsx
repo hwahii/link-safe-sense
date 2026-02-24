@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Shield, BookOpen } from "lucide-react";
+import PageSEO from "@/components/PageSEO";
 
 const Index = () => {
   const [hasHistory, setHasHistory] = useState(false);
@@ -13,7 +14,23 @@ const Index = () => {
     } catch {}
   }, []);
 
+  const websiteJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "學會分辨詐騙連結",
+    "description": "不用懂電腦，七篇圖解教學帶你學會看懂網址門牌、分辨詐騙連結。",
+    "url": "https://uurl.cc",
+    "inLanguage": "zh-Hant",
+  };
+
   return (
+    <>
+    <PageSEO
+      title="學會分辨詐騙連結｜七篇圖解教學"
+      description="不用懂電腦，七篇圖解教學帶你學會看懂網址門牌、分辨詐騙連結。適合所有年齡層，完全免費。"
+      path="/"
+      jsonLd={websiteJsonLd}
+    />
     <main className="min-h-screen bg-background">
       <div className="max-w-lg mx-auto px-5 py-12 sm:py-20">
         <div className="text-center mb-10 animate-fade-in">
@@ -52,6 +69,7 @@ const Index = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

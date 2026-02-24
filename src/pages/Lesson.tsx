@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { LESSON_TITLES, LESSON_READING_TIME } from "@/constants/lessons";
+import { LESSON_DESCRIPTIONS } from "@/constants/lessonDescriptions";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
@@ -9,6 +10,7 @@ import PracticeSection from "@/components/PracticeSection";
 import SmsMessage from "@/components/SmsMessage";
 import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
+import PageSEO from "@/components/PageSEO";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight, Lock, ArrowLeft } from "lucide-react";
@@ -52,6 +54,23 @@ const Lesson = () => {
 
   return (
     <>
+      <PageSEO
+        title={`第 ${lessonId} 篇：${titles[lessonId]}`}
+        description={LESSON_DESCRIPTIONS[lessonId] ?? ""}
+        path={`/lesson/${lessonId}`}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": `第 ${lessonId} 篇：${titles[lessonId]}`,
+          "description": LESSON_DESCRIPTIONS[lessonId] ?? "",
+          "inLanguage": "zh-Hant",
+          "isPartOf": {
+            "@type": "Course",
+            "name": "學會分辨詐騙連結",
+            "description": "七篇圖解教學帶你學會看懂網址門牌、分辨詐騙連結。",
+          },
+        }}
+      />
       <LessonNav />
       {fromQuiz && (
         <div className="bg-muted/50 border-b border-border">

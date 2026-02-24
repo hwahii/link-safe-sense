@@ -1,74 +1,26 @@
+## 目標
 
+把 Lesson 頁面最後的重點總結（目前只是一行粗體字）改成更突出的 "Key Takeaway" 風格區塊，讓讀者一眼就能抓到核心觀念。
 
-# 測驗結果比對與 localStorage 持久化
+## 具體做法
 
-## 概要
+### 修改 `src/pages/Lesson.tsx`
 
-將測驗結果存入 localStorage，讓使用者重新測驗後能與上一次結果比對。結果頁會針對每一題顯示進步（從錯變對）、退步（從對變錯）、持續答對、持續答錯的狀態，給予對應的稱讚或鼓勵。同時讓首頁根據是否有歷史紀錄動態切換內容，並在課程導航列加入回到結果頁的入口。
+**替換第 213 行** 目前的重點句：
 
-## 使用者體驗
-
-**結果頁的比對呈現：**
-- 每題卡片上方顯示與上次的比對標籤：
-  - 從錯變對：顯示「進步了！」綠色標籤，鼓勵使用者
-  - 持續答對：顯示「維持正確」灰色標籤
-  - 從對變錯：顯示「這次答錯了」橘色標籤，溫和提醒
-  - 持續答錯：顯示「還需要練習」標籤，附上課程連結鼓勵學習
-- 頂部分數區域：如果有上次紀錄，額外顯示「上次 X/5 → 這次 Y/5」的比對摘要
-- 首次測驗：不顯示任何比對資訊，跟現在一樣
-
-**首頁動態切換：**
-- 無歷史紀錄：維持現有的入口頁
-- 有歷史紀錄：顯示上次分數摘要、「查看詳細結果」連結、「重新測驗」按鈕、課程列表入口
-
-**課程導航列：**
-- 有測驗紀錄時，顯示一個小圖示可回到 `/quiz/result`
-
-## 技術細節
-
-### localStorage 結構
-
-key: `quizResult`
-
-```text
-{
-  "current": { "answers": ["A","B","B","A","B"], "score": 4 },
-  "previous": { "answers": ["A","A","B","A","A"], "score": 3 } | null
-}
+```
+<p className="mt-4 font-bold text-primary">重點：台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。</p>
 ```
 
-### 檔案修改
+改成一個視覺突出的 Takeaway 卡片：
 
-**1. `src/pages/Quiz.tsx`**
-- 測驗完成時（最後一題回答後）：
-  - 讀取 localStorage 中的 `quizResult`
-  - 將現有的 `current` 移到 `previous`
-  - 將新結果寫入 `current`
-  - 存回 localStorage
-  - 照常 navigate 到結果頁（帶 Router state）
+- 使用 `bg-primary/10 border-2 border-primary/30 rounded-xl p-5` 的樣式，讓它跟一般段落明顯區隔
+- 頂部加上 "KEY TAKEAWAY" 或「📌 記住這個」的標籤（小字、半透明），讓讀者知道這是重點
+- 主文維持現有內容：「台灣的正規機構會使用有審核機制的結尾，不會用便宜的門牌」
+- 下方補一句簡短的行動指引，例如：「看到 `.com.tw` 或 `.gov.tw` 結尾，可信度較高；看到 `.top`、`.xyz` 這類結尾，要提高警覺。」
 
-**2. `src/pages/QuizResult.tsx`**
-- 讀取邏輯：優先用 Router state，否則從 localStorage 的 `current` 讀取
-- 收到 Router state 時，同步寫入 localStorage（將舊 current 移到 previous）
-- 從 localStorage 讀取 `previous` 結果
-- 頂部分數區：有 previous 時顯示「上次 X → 這次 Y」比對
-- 每題卡片：有 previous 時，根據上次/這次答對狀態顯示比對標籤
-  - 上次錯 → 這次對：綠色「學會了！」
-  - 上次對 → 這次對：灰色「維持正確」  
-  - 上次對 → 這次錯：橘色「這次答錯了，再複習一下」
-  - 上次錯 → 這次錯：紅色「還需要練習」+ 強調課程連結
-- 整體摘要文字根據進步/退步數量動態調整語氣
+視覺效果會類似一張獨立的提示卡片，從頁面中跳出來。
 
-**3. `src/pages/Index.tsx`**
-- 讀取 localStorage 的 `quizResult`
-- 有紀錄時：切換為 dashboard 模式，顯示分數摘要、查看結果、重新測驗、開始學習等按鈕
-- 無紀錄時：維持現有入口頁不變
+### 同步調整第 195-200 行的說明段落
 
-**4. `src/components/LessonNav.tsx`**
-- 檢查 localStorage 是否有 `quizResult`
-- 有的話在導航列加一個圖示（例如 ClipboardCheck），連結到 `/quiz/result`
-
-### 避免重複寫入問題
-
-Quiz.tsx 在 navigate 前寫入 localStorage，QuizResult.tsx 不再重複寫入（只讀取）。這樣確保 previous 不會被覆蓋兩次。
-
+把目前分開的兩段（組合結尾需要審核 + 單獨 .tw 不需要審核）也整合進 Takeaway 卡片的上下文中，或保持原樣讓 Takeaway 做為總結。保持原樣較佳，Takeaway 卡片只做最終總結。

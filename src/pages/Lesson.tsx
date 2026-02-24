@@ -294,7 +294,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <p className="mt-4">不管大樓叫什麼名字，只要土地是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">google.com</code>，就代表這塊地屬於 Google ✅</p>
 
     <h3 className="text-lg font-bold mt-8 mb-2">⚠️ 詐騙怎麼利用這個結構？</h3>
-    <p>詐騙會在別人的土地上，把大樓取名成知名品牌的名字，讓你以為是正牌的：</p>
+    <p>詐騙會自己建立一個園區，然後把大樓取名成知名品牌的名字，讓你以為是正牌的：</p>
 
     <UrlBreakdown
       parts={[

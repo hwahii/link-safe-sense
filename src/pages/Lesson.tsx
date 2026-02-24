@@ -507,12 +507,12 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       縮網址本身不是壞東西，很多人會用它來縮短太長的連結。但問題是你沒辦法判斷它背後是什麼。
     </p>
     <p className="mt-4">所以不管是誰傳給你的，規則就一個：</p>
+    <p className="mt-3 font-bold text-lg">看不到門牌，就不要點。自己去打開你知道的 app 或網站找。</p>
+    <p className="mt-4">朋友說某個東西很便宜？打開那個購物 app 自己搜。銀行通知你有問題？打開銀行 app 自己查。不要從別人給你的連結進去。</p>
 
     <KeyTakeaway>
-      看不到門牌，就不要點。自己去打開你知道的 app 或網站找。
+      縮網址會把門牌藏起來，讓你無法判斷安全性。遇到縮網址，不要點，自己去官方 app 或網站查。
     </KeyTakeaway>
-
-    <p>朋友說某個東西很便宜？打開那個購物 app 自己搜。銀行通知你有問題？打開銀行 app 自己查。不要從別人給你的連結進去。</p>
 
     <PracticeSection>
       <LineChat

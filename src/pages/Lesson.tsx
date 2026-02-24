@@ -425,15 +425,7 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 5 ======
 const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>看這兩個網址，哪一個才是蝦皮的網站？</p>
-
-    <div className="my-4">
-      <p className="font-medium mb-2">A. <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-sm">https://shopee.tw/sale/shoes</code></p>
-    </div>
-
-    <div className="my-4">
-      <p className="font-medium mb-2">B. <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-sm">https://cheap-deal.net/shopee/sale</code></p>
-    </div>
+    <p>兩個網址都有「shopee」，但只有一個是蝦皮的網站。我們來看看下面這個題目：</p>
 
     <LessonQuiz
       question="哪一個是蝦皮的網站？"

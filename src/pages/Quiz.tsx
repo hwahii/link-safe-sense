@@ -67,6 +67,22 @@ const Quiz = () => {
       const score = newAnswers.reduce((acc, ans, idx) => {
         return acc + (ans === questions[idx].correctAnswer ? 1 : 0);
       }, 0);
+
+      // Persist to localStorage: move current → previous
+      try {
+        const existing = JSON.parse(localStorage.getItem("quizResult") || "null");
+        const updated = {
+          current: { answers: newAnswers, score },
+          previous: existing?.current ?? null,
+        };
+        localStorage.setItem("quizResult", JSON.stringify(updated));
+      } catch {
+        localStorage.setItem("quizResult", JSON.stringify({
+          current: { answers: newAnswers, score },
+          previous: null,
+        }));
+      }
+
       setTimeout(() => {
         navigate("/quiz/result", { state: { answers: newAnswers, score } });
       }, 300);

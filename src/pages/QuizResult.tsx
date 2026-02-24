@@ -1,10 +1,16 @@
 import { useLocation, Link } from "react-router-dom";
-import { CheckCircle, XCircle, ArrowRight } from "lucide-react";
+import { CheckCircle, XCircle, ArrowRight, TrendingUp, TrendingDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 interface QuizResultState {
   answers: string[];
   score: number;
+}
+
+interface StoredQuizResult {
+  current: QuizResultState;
+  previous: QuizResultState | null;
 }
 
 const questions = [
@@ -66,11 +72,42 @@ const questions = [
   },
 ];
 
+type CompareStatus = "improved" | "maintained" | "regressed" | "struggling";
+
+function getCompareStatus(
+  prevAnswer: string,
+  currAnswer: string,
+  correctAnswer: string
+): CompareStatus {
+  const prevCorrect = prevAnswer === correctAnswer;
+  const currCorrect = currAnswer === correctAnswer;
+  if (!prevCorrect && currCorrect) return "improved";
+  if (prevCorrect && currCorrect) return "maintained";
+  if (prevCorrect && !currCorrect) return "regressed";
+  return "struggling";
+}
+
+const compareLabels: Record<CompareStatus, { text: string; className: string }> = {
+  improved: { text: "🎉 學會了！", className: "bg-safe/15 text-safe border-safe/30" },
+  maintained: { text: "✓ 維持正確", className: "bg-muted text-muted-foreground border-border" },
+  regressed: { text: "這次答錯了，再複習一下", className: "bg-[hsl(30,80%,50%)]/15 text-[hsl(30,80%,40%)] border-[hsl(30,80%,50%)]/30" },
+  struggling: { text: "還需要練習", className: "bg-danger/15 text-danger border-danger/30" },
+};
+
 const QuizResult = () => {
   const location = useLocation();
-  const state = location.state as QuizResultState | null;
+  const routerState = location.state as QuizResultState | null;
 
-  if (!state) {
+  // Read from localStorage
+  let stored: StoredQuizResult | null = null;
+  try {
+    stored = JSON.parse(localStorage.getItem("quizResult") || "null");
+  } catch {}
+
+  const current = routerState ?? stored?.current ?? null;
+  const previous = stored?.previous ?? null;
+
+  if (!current) {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center p-5">
         <div className="text-center">
@@ -83,7 +120,31 @@ const QuizResult = () => {
     );
   }
 
-  const { answers, score } = state;
+  const { answers, score } = current;
+
+  // Compare stats
+  let improvedCount = 0;
+  let regressedCount = 0;
+  if (previous) {
+    questions.forEach((q, idx) => {
+      const status = getCompareStatus(previous.answers[idx], answers[idx], q.correctAnswer);
+      if (status === "improved") improvedCount++;
+      if (status === "regressed") regressedCount++;
+    });
+  }
+
+  const getScoreSummary = () => {
+    if (!previous) {
+      if (score === 5) return "🎉 太厲害了，全部答對！你已經具備分辨詐騙連結的基本能力。下面的課程可以幫你更深入理解背後的原理。";
+      if (score >= 3) return "👍 表現得不錯！有幾題比較容易混淆，看看下面的詳解，下次就不會再猶豫了。";
+      return "沒關係，這些本來就不容易分辨。好消息是，只要花幾分鐘看完下面的說明，你馬上就會知道怎麼判斷。";
+    }
+    const diff = score - previous.score;
+    if (diff > 0) return `📈 進步了！比上次多對了 ${diff} 題。${improvedCount > 0 ? "學習真的有用！" : ""}`;
+    if (diff === 0 && score === 5) return "🎉 又是滿分！你對詐騙連結的判斷力很穩固。";
+    if (diff === 0) return "跟上次一樣的分數，再看看下面哪些地方可以加強。";
+    return `這次少對了 ${Math.abs(diff)} 題，沒關係，再複習一下就好。`;
+  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -94,12 +155,19 @@ const QuizResult = () => {
             <span className="text-3xl font-bold text-primary">{score}</span>
           </div>
           <p className="text-xl font-bold text-foreground">你答對了 {score} / 5 題</p>
+          
+          {previous && (
+            <div className="mt-3 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-sm">
+              <span className="text-muted-foreground">上次 {previous.score}/5</span>
+              <span className="text-muted-foreground">→</span>
+              <span className="font-bold text-foreground">這次 {score}/5</span>
+              {score > previous.score && <TrendingUp className="w-4 h-4 text-safe" />}
+              {score < previous.score && <TrendingDown className="w-4 h-4 text-danger" />}
+            </div>
+          )}
+          
           <p className="mt-3 text-base text-muted-foreground leading-relaxed">
-            {score === 5
-              ? "🎉 太厲害了，全部答對！你已經具備分辨詐騙連結的基本能力。下面的課程可以幫你更深入理解背後的原理。"
-              : score >= 3
-              ? "👍 表現得不錯！有幾題比較容易混淆，看看下面的詳解，下次就不會再猶豫了。"
-              : "沒關係，這些本來就不容易分辨。好消息是，只要花幾分鐘看完下面的說明，你馬上就會知道怎麼判斷。"}
+            {getScoreSummary()}
           </p>
         </div>
 
@@ -108,12 +176,20 @@ const QuizResult = () => {
           {questions.map((q, idx) => {
             const userAnswer = answers[idx];
             const isCorrect = userAnswer === q.correctAnswer;
+            const compareStatus = previous
+              ? getCompareStatus(previous.answers[idx], userAnswer, q.correctAnswer)
+              : null;
 
             return (
               <div key={q.id} className="rounded-2xl border border-border bg-card p-5">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="flex items-center gap-2 mb-3 flex-wrap">
                   <p className="font-medium text-sm text-muted-foreground">第 {q.id} 題</p>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">{q.concept}</span>
+                  {compareStatus && (
+                    <span className={`text-xs px-2 py-0.5 rounded-full border font-medium ${compareLabels[compareStatus].className}`}>
+                      {compareLabels[compareStatus].text}
+                    </span>
+                  )}
                 </div>
                 
                 <div className="space-y-2 mb-4">

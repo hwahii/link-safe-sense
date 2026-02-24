@@ -13,28 +13,28 @@ interface QuizQuestion {
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    question: "在兩個選項中選擇你覺得安全的那個：",
+    question: "哪個選項看起來比較安全？",
     optionA: "https://shopee.tw/order/detail",
     optionB: "https://shopee.tw.order-check.net/detail",
     correctAnswer: "A",
   },
   {
     id: 2,
-    question: "在兩個選項中選擇你覺得安全的那個：",
+    question: "哪個選項看起來比較安全？",
     optionA: "https://www.cathaybk.com.tw/login",
     optionB: "https://www.cathaybk.xyz/login",
     correctAnswer: "A",
   },
   {
     id: 3,
-    question: "在兩個選項中選擇你覺得安全的那個：",
+    question: "哪個選項看起來比較安全？",
     optionA: "https://www.gooogle.com/search",
     optionB: "https://www.google.com/search",
     correctAnswer: "B",
   },
   {
     id: 4,
-    question: "在兩個選項中選擇你覺得安全的那個：",
+    question: "哪個選項看起來比較安全？",
     optionA: "https://www.esunbank.com.tw/personal/loan",
     optionB: "https://secure-banking.net/esunbank/personal/loan",
     correctAnswer: "A",
@@ -99,11 +99,11 @@ const Quiz = () => {
                 onClick={() => handleAnswer(opt)}
                 className="w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 border-border bg-white hover:border-primary hover:bg-primary/5 transition-all"
               >
-                <span className="flex items-start gap-3">
+                <span className="flex items-center gap-3">
                   <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm shrink-0">
                     {opt}
                   </span>
-                  <span className={`text-base leading-relaxed break-all ${isUrl(text) ? "font-mono text-sm" : ""}`}>
+                  <span className={`leading-relaxed break-all ${isUrl(text) ? "font-mono text-sm" : "text-base"}`}>
                     {text}
                   </span>
                 </span>

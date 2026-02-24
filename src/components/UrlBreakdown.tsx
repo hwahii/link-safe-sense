@@ -13,9 +13,9 @@ interface UrlBreakdownProps {
 const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
   return (
     <div className="my-6 rounded-xl border border-border bg-muted/50 p-4 overflow-x-auto">
-      <div className="flex flex-wrap items-end gap-0 font-mono text-base sm:text-lg">
+      <div className="inline-flex items-end gap-0 font-mono text-base sm:text-lg whitespace-nowrap">
         {parts.map((part, i) => (
-          <span key={i} className="inline-flex flex-col items-start">
+          <span key={i} className="inline-flex flex-col items-center">
             <span
               className={`px-1 py-0.5 rounded ${
                 part.type === "safe"
@@ -28,7 +28,7 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
               {part.text}
             </span>
             {part.label && (
-              <span className="text-xs text-muted-foreground mt-1 font-sans leading-tight px-1">
+              <span className="text-[10px] text-muted-foreground mt-1.5 font-sans leading-tight px-1 whitespace-nowrap">
                 {part.label}
               </span>
             )}

@@ -14,28 +14,28 @@ interface QuizQuestion {
 const questions: QuizQuestion[] = [
   {
     id: 1,
-    question: "哪個選項看起來比較安全？",
+    question: "哪個選項中的連結看起來比較安全？",
     optionA: "https://shopee.tw/order/detail",
     optionB: "https://shopee.tw.order-check.net/detail",
     correctAnswer: "A",
   },
   {
     id: 2,
-    question: "哪個選項看起來比較安全？",
+    question: "哪個選項中的連結看起來比較安全？",
     optionA: "https://www.cathaybk.com.tw/login",
     optionB: "https://www.cathaybk.xyz/login",
     correctAnswer: "A",
   },
   {
     id: 3,
-    question: "哪個選項看起來比較安全？",
+    question: "哪個選項中的連結看起來比較安全？",
     optionA: "https://www.gooogle.com/search",
     optionB: "https://www.google.com/search",
     correctAnswer: "B",
   },
   {
     id: 4,
-    question: "哪個選項看起來比較安全？",
+    question: "哪個選項中的連結看起來比較安全？",
     optionA: "https://www.esunbank.com.tw/personal/loan",
     optionB: "https://secure-banking.net/esunbank/personal/loan",
     correctAnswer: "A",

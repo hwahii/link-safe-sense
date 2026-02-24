@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, List, ClipboardCheck } from "lucide-react";
+import { TOTAL_LESSONS } from "@/constants/lessons";
 
 const LessonNav: React.FC = () => {
   const location = useLocation();
@@ -35,7 +36,7 @@ const LessonNav: React.FC = () => {
         </div>
         {isLesson && (
           <span className="text-sm text-muted-foreground font-medium">
-            第 {currentLesson} / 7 篇
+            第 {currentLesson} / {TOTAL_LESSONS} 篇
           </span>
         )}
       </div>

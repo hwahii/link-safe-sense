@@ -1,16 +1,12 @@
 import { Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import { ArrowRight } from "lucide-react";
+import { LESSON_TITLES } from "@/constants/lessons";
 
-const lessonList = [
-  { id: 1, title: "網址是什麼？" },
-  { id: 2, title: "認識門牌的結尾" },
-  { id: 3, title: "怎麼找到門牌？" },
-  { id: 4, title: "假門牌長得跟真的很像" },
-  { id: 5, title: "品牌名稱出現在哪裡很重要" },
-  { id: 6, title: "看不到門牌怎麼辦？" },
-  { id: 7, title: "信箱也是一樣的道理" },
-];
+const lessonList = Object.entries(LESSON_TITLES).map(([id, title]) => ({
+  id: Number(id),
+  title,
+}));
 
 const Lessons = () => {
   return (

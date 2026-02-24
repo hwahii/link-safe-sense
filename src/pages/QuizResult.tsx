@@ -106,20 +106,41 @@ const QuizResult = () => {
 
             return (
               <div key={q.id} className="rounded-2xl border border-border bg-card p-5">
-                <div className="flex items-start gap-3 mb-3">
-                  {isCorrect ? (
-                    <CheckCircle className="w-6 h-6 text-safe shrink-0 mt-0.5" />
-                  ) : (
-                    <XCircle className="w-6 h-6 text-danger shrink-0 mt-0.5" />
-                  )}
-                  <div>
-                    <p className="font-medium text-sm text-muted-foreground">第 {q.id} 題</p>
-                    <p className="text-base text-foreground mt-1">
-                      你的答案：{userAnswer}（{userAnswer === "A" ? q.optionA : q.optionB}）
-                    </p>
-                  </div>
+                <p className="font-medium text-sm text-muted-foreground mb-3">第 {q.id} 題</p>
+                
+                <div className="space-y-2 mb-4">
+                  {(["A", "B"] as const).map((opt) => {
+                    const text = opt === "A" ? q.optionA : q.optionB;
+                    const isUserChoice = userAnswer === opt;
+                    const isCorrectOption = q.correctAnswer === opt;
+                    
+                    return (
+                      <div
+                        key={opt}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl border-2 ${
+                          isCorrectOption
+                            ? "border-safe/40 bg-safe/5"
+                            : isUserChoice
+                            ? "border-danger/40 bg-danger/5"
+                            : "border-border bg-muted/30"
+                        }`}
+                      >
+                        <span className={`inline-flex items-center justify-center w-7 h-7 rounded-full text-sm font-bold shrink-0 ${
+                          isCorrectOption ? "bg-safe/15 text-safe" : isUserChoice ? "bg-danger/15 text-danger" : "bg-muted text-muted-foreground"
+                        }`}>
+                          {opt}
+                        </span>
+                        <span className={`break-all ${text.startsWith("http") ? "font-mono text-sm" : "text-base"}`}>
+                          {text}
+                        </span>
+                        {isCorrectOption && <CheckCircle className="w-5 h-5 text-safe shrink-0 ml-auto" />}
+                        {isUserChoice && !isCorrectOption && <XCircle className="w-5 h-5 text-danger shrink-0 ml-auto" />}
+                      </div>
+                    );
+                  })}
                 </div>
-                <p className="text-base leading-relaxed text-foreground mt-3">{q.explanation}</p>
+
+                <p className="text-base leading-relaxed text-foreground">{q.explanation}</p>
                 <Link to={q.lessonLink} className="inline-flex items-center gap-1 mt-4 text-primary font-medium hover:underline">
                   學習這個概念 <ArrowRight className="w-4 h-4" />
                 </Link>

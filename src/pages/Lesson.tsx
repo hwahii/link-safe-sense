@@ -261,15 +261,15 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <div className="my-5 space-y-3 text-sm">
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
         <span className="text-lg">🌍</span>
-        <div><span className="font-bold">土地（網域）</span>＝園區的地址，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">shopee.tw</code>。這塊地的主人就是蝦皮。</div>
+        <div><span className="font-bold">土地（網域）</span>＝園區的地址，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">google.com</code>。這塊地的主人就是 Google。</div>
       </div>
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
         <span className="text-lg">🏢</span>
-        <div><span className="font-bold">大樓（子網域）</span>＝園區裡的獨立建築，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mall.</code>shopee.tw 就是蝦皮園區裡的「商城大樓」。</div>
+        <div><span className="font-bold">大樓（子網域）</span>＝園區裡的獨立建築，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.</code>google.com 就是 Google 園區裡的「郵件大樓」。</div>
       </div>
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
         <span className="text-lg">🚪</span>
-        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 shopee.tw<code className="font-mono bg-muted px-1.5 py-0.5 rounded">/order/detail</code>。</div>
+        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 google.com<code className="font-mono bg-muted px-1.5 py-0.5 rounded">/maps/place</code>。</div>
       </div>
     </div>
 
@@ -278,13 +278,13 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <UrlBreakdown
       parts={[
         { text: "https://", type: "neutral" },
-        { text: "mall.", type: "neutral", label: "大樓（子網域）" },
-        { text: "shopee.tw", type: "safe", label: "← 土地（網域）" },
-        { text: "/event/sale", type: "neutral", label: "房間（路徑）" },
+        { text: "mail.", type: "neutral", label: "大樓（子網域）" },
+        { text: "google.com", type: "safe", label: "← 土地（網域）" },
+        { text: "/inbox", type: "neutral", label: "房間（路徑）" },
       ]}
     />
 
-    <p className="mt-4">不管大樓叫什麼名字，只要土地是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">shopee.tw</code>，就代表這塊地屬於蝦皮 ✅</p>
+    <p className="mt-4">不管大樓叫什麼名字，只要土地是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-safe">google.com</code>，就代表這塊地屬於 Google ✅</p>
 
     <h3 className="text-lg font-bold mt-8 mb-2">⚠️ 詐騙怎麼利用這個結構？</h3>
     <p>詐騙會在別人的土地上，把大樓取名成知名品牌的名字，讓你以為是正牌的：</p>

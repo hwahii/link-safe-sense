@@ -252,10 +252,11 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 3 (子網域：園區與大樓) ======
 const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>上一篇我們學到網址的結尾（門牌）怎麼看。這篇要進一步認識網址的「結構」——我們用一個比喻來理解。</p>
+    <p>上一篇我們學到網址的結尾，這篇要來認識網址的「開頭」。</p>
 
-    <h3 className="text-lg font-bold mt-6 mb-2">🏗️ 把網址想像成一座園區</h3>
-    <p>每個網站就像一座園區，裡面有土地、大樓、還有房間：</p>
+    <p className="mt-4">事實上，前面提到的門牌，其實可以想成「一整個園區的門牌」，而這個園區當中，可以不只包含一棟大樓。</p>
+
+    <p className="mt-4">概念像是這樣：</p>
 
     <div className="my-5 space-y-3 text-sm">
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">

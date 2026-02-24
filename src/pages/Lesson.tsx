@@ -580,8 +580,8 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 
     <UrlBreakdown
       parts={[
-        { text: "service", type: "neutral", label: "帳號名稱，任何人都能取" },
-        { text: "@", type: "neutral", label: "分隔符號" },
+        { text: "service", type: "neutral", label: "帳號名稱", sublabel: "任何人都能取" },
+        { text: "   @   ", type: "neutral", label: "分隔符號" },
         { text: "cathaybk.com.tw", type: "safe", label: "門牌：跟網址一模一樣" },
       ]}
     />

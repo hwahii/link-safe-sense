@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { LESSON_TITLES } from "@/constants/lessons";
 import { useParams, Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
@@ -44,16 +45,7 @@ const Lesson = () => {
     }
   };
 
-  const titles = [
-    "",
-    "網址是什麼？",
-    "認識門牌的結尾",
-    "子網域：園區與大樓",
-    "假門牌長得跟真的很像",
-    "品牌名稱出現在哪裡很重要",
-    "看不到門牌怎麼辦？",
-    "信箱也是一樣的道理",
-  ];
+  const titles = LESSON_TITLES;
 
   return (
     <>

@@ -193,7 +193,10 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </div>
 
     <p className="mt-4">
-      這些帶有 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code> 的組合結尾都需要經過審核，不是任何人想註冊就能拿到的。所以看到 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.com.tw</code> 或 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.gov.tw</code>，可信度會比較高。
+      像 <code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.com.tw</code>、<code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.gov.tw</code>、<code className="text-safe bg-safe/10 px-1.5 py-0.5 rounded">.org.tw</code> 這樣的組合結尾，需要提供公司登記或機關證明才能申請，所以可信度比較高。
+    </p>
+    <p className="mt-3 text-sm text-muted-foreground">
+      注意：單獨的 <code className="text-primary bg-primary/10 px-1.5 py-0.5 rounded">.tw</code> 不需要這些審核，任何人都能向網域商購買，所以不能光看到 .tw 就覺得安全。
     </p>
 
     <p className="mt-4">但有些結尾非常便宜，任何人都能隨手註冊：</p>

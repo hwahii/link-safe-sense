@@ -16,13 +16,13 @@ const Index = () => {
         </div>
 
         <div className="space-y-5 text-foreground text-lg leading-[1.9]">
-          <p className="pl-4 border-l-[3px] border-primary/40 animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
+          <p className="animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
             網路上的連結，有些是真的，有些是詐騙。表面上很難分辨——但其實有簡單的方法。
           </p>
-          <p className="pl-4 border-l-[3px] border-primary/30 animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
+          <p className="animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
             只要學會看懂網址裡的<strong>「門牌」</strong>，就能判斷一個連結安不安全。
           </p>
-          <p className="pl-4 border-l-[3px] border-primary/20 animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
+          <p className="animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
             不用懂電腦，不用安裝任何東西。七篇小知識，再也不怕誤點詐騙連結。先測測看你目前的判斷力，或直接開始學習：
           </p>
         </div>
@@ -40,10 +40,6 @@ const Index = () => {
             </Button>
           </Link>
         </div>
-
-        <p className="text-center text-sm text-muted-foreground mt-8 animate-fade-in" style={{ animationDelay: "0.6s", animationFillMode: "both" }}>
-          完全免費，沒有廣告
-        </p>
       </div>
     </main>
   );

@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
 import LineChat from "@/components/LineChat";
+import KeyTakeaway from "@/components/KeyTakeaway";
 import SmsMessage from "@/components/SmsMessage";
 import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
@@ -120,9 +121,9 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <p className="mt-4 font-bold text-primary">
+    <KeyTakeaway>
       判斷一個網址安不安全，最重要的就是看那個「門牌」。
-    </p>
+    </KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>
@@ -210,11 +211,11 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </div>
     <p className="text-sm text-muted-foreground -mt-2 mb-4">這些結尾便宜又不需要審核，詐騙網站很愛用。</p>
 
-    <div className="mt-6 bg-primary/10 border-2 border-primary/30 rounded-xl p-5">
-      <p className="text-xs font-bold tracking-widest text-primary/60 mb-2">📌 記住這個</p>
-      <p className="font-bold text-primary text-lg">台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。</p>
-      <p className="text-sm text-muted-foreground mt-2">看到 <span className="font-mono font-semibold text-foreground">.com.tw</span> 或 <span className="font-mono font-semibold text-foreground">.gov.tw</span> 結尾，可信度較高；看到 <span className="font-mono font-semibold text-foreground">.top</span>、<span className="font-mono font-semibold text-foreground">.xyz</span> 這類結尾，要提高警覺。</p>
-    </div>
+    <KeyTakeaway
+      action={<>看到 <span className="font-mono font-semibold text-foreground">.com.tw</span> 或 <span className="font-mono font-semibold text-foreground">.gov.tw</span> 結尾，可信度較高；看到 <span className="font-mono font-semibold text-foreground">.top</span>、<span className="font-mono font-semibold text-foreground">.xyz</span> 這類結尾，要提高警覺。</>}
+    >
+      台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。
+    </KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>
@@ -267,7 +268,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       <li className="text-safe font-medium">• shopee.tw → 主人是 shopee，在 .tw（台灣）✅</li>
       <li className="text-danger font-medium">• shopee.tw.order-check.net → 主人是 order-check，在 .net ❌</li>
     </ul>
-    <p className="mt-4 font-bold text-primary">不管前面塞了什麼，最後那一段才是真正的主人。</p>
+    <KeyTakeaway>不管前面塞了什麼，最後那一段才是真正的主人。</KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>
@@ -350,9 +351,9 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <p className="font-bold text-primary">
+    <KeyTakeaway>
       這些差異在手機螢幕上特別難發現。看到品牌名稱的時候，值得多花兩秒鐘確認。
-    </p>
+    </KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>
@@ -408,9 +409,9 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">esunbank.com.tw</span>，這是玉山銀行自己的網站。</p>
     <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">secure-banking.net</span>，「esunbank」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 esunbank 的頁面。</p>
 
-    <p className="mt-4 font-bold text-primary">
-      重點：品牌名稱要出現在斜線「前面」才算數。出現在斜線「後面」的不代表任何東西。
-    </p>
+    <KeyTakeaway>
+      品牌名稱要出現在斜線「前面」才算數。出現在斜線「後面」的不代表任何東西。
+    </KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>
@@ -449,9 +450,9 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </p>
     <p className="mt-4">所以不管是誰傳給你的，規則就一個：</p>
 
-    <div className="my-4 px-5 py-4 rounded-2xl bg-primary/10 border-2 border-primary/20">
-      <p className="text-lg font-bold text-primary">看不到門牌，就不要點。自己去打開你知道的 app 或網站找。</p>
-    </div>
+    <KeyTakeaway>
+      看不到門牌，就不要點。自己去打開你知道的 app 或網站找。
+    </KeyTakeaway>
 
     <p>朋友說某個東西很便宜？打開那個購物 app 自己搜。銀行通知你有問題？打開銀行 app 自己查。不要從別人給你的連結進去。</p>
 
@@ -511,7 +512,7 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <p className="font-bold text-primary">重點：@ 後面才是門牌。@ 前面任何人都可以隨便取。</p>
+    <KeyTakeaway>@ 後面才是門牌。@ 前面任何人都可以隨便取。</KeyTakeaway>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>

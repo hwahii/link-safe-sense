@@ -425,7 +425,28 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 // ====== Lesson 5 ======
 const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
-    <p>看這兩個網址：</p>
+    <p>看這兩個網址，哪一個才是蝦皮的網站？</p>
+
+    <div className="my-4">
+      <p className="font-medium mb-2">A. <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-sm">https://shopee.tw/sale/shoes</code></p>
+    </div>
+
+    <div className="my-4">
+      <p className="font-medium mb-2">B. <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-sm">https://cheap-deal.net/shopee/sale</code></p>
+    </div>
+
+    <LessonQuiz
+      question="哪一個是蝦皮的網站？"
+      options={[
+        { label: "A", text: "https://shopee.tw/sale/shoes" },
+        { label: "B", text: "https://cheap-deal.net/shopee/sale" },
+      ]}
+      correctAnswer="A"
+      correctFeedback="沒錯！我們來看看為什麼。"
+      wrongFeedback="不對喔！我們來看看為什麼。"
+    />
+
+    <p className="mt-4">把門牌標示出來，你就看得出差別了：</p>
 
     <div className="my-4">
       <p className="font-medium mb-2">A.</p>
@@ -449,11 +470,11 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       />
     </div>
 
-    <p>兩個都有「shopee」，但意義完全不同。</p>
-    <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">shopee.tw</span>，這是蝦皮自己的網站。</p>
-    <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，「shopee」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 shopee 的頁面。</p>
-
-    <p className="mt-4">怎麼分辨？找到門牌後面的第一個 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">/</code>，前面的是門牌，後面的都只是房間名稱。</p>
+    <p>雖然兩個都有「shopee」，但意義完全不同。</p>
+    <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">shopee.tw</span>，這是蝦皮的網站。</p>
+    <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，這是不明網站。</p>
+    <p className="mt-4">在門牌後面的第一個 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">/</code> 之後的文字，都是「頁面路徑」，你可以想成大樓裡的樓層、房間。而這些樓層房間的名稱完全都是網站主人可以自己命名的。</p>
+    <p className="mt-3">所以 B 選項的「shopee」出現在斜線後面，是不能代表「這是蝦皮正牌網站」的。</p>
 
     <KeyTakeaway>
       品牌名稱出現在門牌裡才算數。出現在路徑（房間）裡的不代表任何東西，任何人都能取。

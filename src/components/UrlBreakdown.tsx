@@ -4,27 +4,27 @@ interface UrlPart {
   text: string;
   type: "safe" | "danger" | "neutral";
   label?: string;
+  sublabel?: string;
 }
 
 interface UrlBreakdownProps {
   parts: UrlPart[];
 }
 
-// Merge unlabeled parts into the next labeled group so they share a cell
-function groupParts(parts: UrlPart[]): { segments: UrlPart[]; label?: string }[] {
-  const groups: { segments: UrlPart[]; label?: string }[] = [];
+// Merge unlabeled parts into the next labeled group
+function groupParts(parts: UrlPart[]): { segments: UrlPart[]; label?: string; sublabel?: string }[] {
+  const groups: { segments: UrlPart[]; label?: string; sublabel?: string }[] = [];
   let buffer: UrlPart[] = [];
 
   for (const part of parts) {
     if (part.label) {
-      groups.push({ segments: [...buffer, part], label: part.label });
+      groups.push({ segments: [...buffer, part], label: part.label, sublabel: part.sublabel });
       buffer = [];
     } else {
       buffer.push(part);
     }
   }
   if (buffer.length) {
-    // trailing unlabeled → merge into last group if exists, else new group
     if (groups.length) {
       groups[groups.length - 1].segments.push(...buffer);
     } else {
@@ -59,10 +59,13 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
                 </span>
               ))}
             </span>
-            {/* Label */}
+            {/* Label - two lines */}
             {group.label && (
-              <span className="text-xs sm:text-sm text-muted-foreground font-sans mt-1.5 whitespace-nowrap">
-                {group.label}
+              <span className="flex flex-col items-center mt-1.5 font-sans">
+                <span className="text-sm text-muted-foreground leading-snug">{group.label}</span>
+                {group.sublabel && (
+                  <span className="text-xs text-muted-foreground/70 leading-snug">{group.sublabel}</span>
+                )}
               </span>
             )}
           </div>

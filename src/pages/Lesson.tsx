@@ -341,19 +341,21 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <div className="my-6 space-y-4">
       <div>
         <p className="font-medium mb-2">多一個字母：</p>
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono">
-            <span className="text-danger">gooogle</span>.com（三個 o）❌
+            <span className="text-danger">gooogle</span>.com ❌
+            <br /><span className="text-sm text-muted-foreground">（三個 o）</span>
           </div>
           <div className="px-4 py-2 rounded-xl bg-safe/10 border border-safe/20 font-mono">
-            <span className="text-safe">google</span>.com（兩個 o）✅
+            <span className="text-safe">google</span>.com ✅
+            <br /><span className="text-sm text-muted-foreground">（兩個 o）</span>
           </div>
         </div>
       </div>
 
       <div>
         <p className="font-medium mb-2">少一個字母：</p>
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono">
             <span className="text-danger">shope</span>.tw ❌
           </div>
@@ -367,20 +369,23 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         <p className="font-medium mb-2">用長得像的字元替換：</p>
         <div className="space-y-2">
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono text-danger">
-            go<strong>0</strong>gle.com（數字 0 代替字母 O）❌
+            go<strong>0</strong>gle.com ❌
+            <br /><span className="text-sm text-muted-foreground">（數字 0 代替字母 O）</span>
           </div>
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono text-danger">
-            l<strong>1</strong>ne.me（數字 1 代替字母 l）❌
+            l<strong>1</strong>ne.me ❌
+            <br /><span className="text-sm text-muted-foreground">（數字 1 代替字母 l）</span>
           </div>
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono text-danger">
-            <strong>rn</strong>omo.com（rn 看起來像 m）❌
+            <strong>rn</strong>omo.com ❌
+            <br /><span className="text-sm text-muted-foreground">（rn 看起來像 m）</span>
           </div>
         </div>
       </div>
 
       <div>
         <p className="font-medium mb-2">相鄰字母對調：</p>
-        <div className="flex flex-col sm:flex-row gap-2">
+        <div className="grid grid-cols-2 gap-2">
           <div className="px-4 py-2 rounded-xl bg-danger/10 border border-danger/20 font-mono text-danger">
             googel.com ❌
           </div>

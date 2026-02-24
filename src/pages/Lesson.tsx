@@ -307,7 +307,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 
     <p className="mt-4">看起來有「shopee.tw」的字樣，但它只是大樓名稱。真正的土地主人是 <code className="font-mono bg-muted px-1.5 py-0.5 rounded text-danger">order-check.net</code> ——跟蝦皮一點關係都沒有。</p>
 
-    <KeyTakeaway action={<>判斷方式：看網址結尾的那段名稱，那才是土地主人。前面不管塞了什麼，都只是大樓名稱。</>}>
+    <KeyTakeaway action={<>判斷方式：用上一篇學到的方法，先找到網址結尾的土地主人是誰，再看前面的大樓名稱是否合理。</>}>
       大樓可以隨便取名，但土地的主人才是關鍵。看網址時，永遠先確認土地（網域）是誰的。
     </KeyTakeaway>
 

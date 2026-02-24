@@ -45,8 +45,8 @@ const Lesson = () => {
   const titles = [
     "",
     "網址是什麼？",
-    "怎麼找到門牌？",
     "認識門牌的結尾",
+    "怎麼找到門牌？",
     "假門牌長得跟真的很像",
     "品牌名稱出現在哪裡很重要",
     "看不到門牌怎麼辦？",
@@ -146,62 +146,8 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   </div>
 );
 
-// ====== Lesson 2 ======
+// ====== Lesson 2 (認識門牌的結尾) ======
 const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
-  <div>
-    <p>門牌就是網址裡面，https:// 後面、第一個 / 前面的那一段。</p>
-
-    <UrlBreakdown
-      parts={[
-        { text: "https://", type: "neutral" },
-        { text: "www.shopee.tw", type: "safe", label: "← 這就是門牌" },
-        { text: "/order/detail", type: "neutral" },
-      ]}
-    />
-
-    <p className="mt-4">但詐騙網址會故意讓你搞混。看這個：</p>
-
-    <UrlBreakdown
-      parts={[
-        { text: "https://", type: "neutral" },
-        { text: "shopee.tw.", type: "danger", label: "裝飾，不是真正的主人" },
-        { text: "order-check.net", type: "danger", label: "← 這才是真正的主人" },
-        { text: "/detail", type: "neutral" },
-      ]}
-    />
-
-    <p className="mt-4">規則很簡單：門牌看「最後一個點」的前後。</p>
-    <ul className="mt-3 space-y-2">
-      <li className="text-safe font-medium">• shopee.tw → 主人是 shopee，在 .tw（台灣）✅</li>
-      <li className="text-danger font-medium">• shopee.tw.order-check.net → 主人是 order-check，在 .net ❌</li>
-    </ul>
-    <p className="mt-4 font-bold text-primary">不管前面塞了什麼，最後那一段才是真正的主人。</p>
-
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
-      <LineChat
-        name="媽媽"
-        messages={[
-          { sender: "other", text: "你看這個是不是蝦皮的活動？ https://shopee.tw.special-sale.net/event" },
-        ]}
-      />
-      <LessonQuiz
-        question="這個網址的主人是誰？"
-        options={[
-          { label: "A", text: "shopee.tw（蝦皮）" },
-          { label: "B", text: "special-sale.net" },
-        ]}
-        correctAnswer="B"
-        correctFeedback="看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
-        wrongFeedback="沒關係！看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
-        onComplete={onQuizDone}
-      />
-    </div>
-  </div>
-);
-
-// ====== Lesson 3 ======
-const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
   <div>
     <p>門牌的結尾叫做「網域後綴」，就像地址裡的國家或區域。常見的有：</p>
 
@@ -248,6 +194,60 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         correctAnswer="B"
         correctFeedback=".top 是任何人都能便宜註冊的網域後綴。正規的台灣銀行會使用 .com.tw，不會用 .top。"
         wrongFeedback="沒關係！.top 是任何人都能便宜註冊的網域後綴。正規的台灣銀行會使用 .com.tw，不會用 .top。"
+        onComplete={onQuizDone}
+      />
+    </div>
+  </div>
+);
+
+// ====== Lesson 3 (怎麼找到門牌？) ======
+const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
+  <div>
+    <p>門牌就是網址裡面，https:// 後面、第一個 / 前面的那一段。</p>
+
+    <UrlBreakdown
+      parts={[
+        { text: "https://", type: "neutral" },
+        { text: "www.shopee.tw", type: "safe", label: "← 這就是門牌" },
+        { text: "/order/detail", type: "neutral" },
+      ]}
+    />
+
+    <p className="mt-4">但詐騙網址會故意讓你搞混。看這個：</p>
+
+    <UrlBreakdown
+      parts={[
+        { text: "https://", type: "neutral" },
+        { text: "shopee.tw.", type: "danger", label: "裝飾，不是真正的主人" },
+        { text: "order-check.net", type: "danger", label: "← 這才是真正的主人" },
+        { text: "/detail", type: "neutral" },
+      ]}
+    />
+
+    <p className="mt-4">規則很簡單：門牌看「最後一個點」的前後。</p>
+    <ul className="mt-3 space-y-2">
+      <li className="text-safe font-medium">• shopee.tw → 主人是 shopee，在 .tw（台灣）✅</li>
+      <li className="text-danger font-medium">• shopee.tw.order-check.net → 主人是 order-check，在 .net ❌</li>
+    </ul>
+    <p className="mt-4 font-bold text-primary">不管前面塞了什麼，最後那一段才是真正的主人。</p>
+
+    <div className="mt-8 border-t border-border pt-6">
+      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+      <LineChat
+        name="媽媽"
+        messages={[
+          { sender: "other", text: "你看這個是不是蝦皮的活動？ https://shopee.tw.special-sale.net/event" },
+        ]}
+      />
+      <LessonQuiz
+        question="這個網址的主人是誰？"
+        options={[
+          { label: "A", text: "shopee.tw（蝦皮）" },
+          { label: "B", text: "special-sale.net" },
+        ]}
+        correctAnswer="B"
+        correctFeedback="看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
+        wrongFeedback="沒關係！看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
         onComplete={onQuizDone}
       />
     </div>

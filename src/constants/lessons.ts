@@ -8,6 +8,21 @@ export const LESSON_TITLES: Record<number, string> = {
   7: "電子郵件也是一樣的道理",
 };
 
+export const LESSON_SLUGS: Record<number, string> = {
+  1: "1-what-is-url",
+  2: "2-domain-suffixes",
+  3: "3-subdomains",
+  4: "4-lookalike-domains",
+  5: "5-brand-in-domain",
+  6: "6-shortened-urls",
+  7: "7-email-addresses",
+};
+
+/** slug → lesson id 反查表 */
+export const SLUG_TO_ID: Record<string, number> = Object.fromEntries(
+  Object.entries(LESSON_SLUGS).map(([id, slug]) => [slug, Number(id)])
+);
+
 /** 預估閱讀時間（分鐘） */
 export const LESSON_READING_TIME: Record<number, number> = {
   1: 2,

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import { ArrowRight } from "lucide-react";
-import { LESSON_TITLES } from "@/constants/lessons";
+import { LESSON_TITLES, LESSON_SLUGS } from "@/constants/lessons";
 import PageSEO from "@/components/PageSEO";
 import Footer from "@/components/Footer";
 
@@ -26,7 +26,7 @@ const Lessons = () => {
             {lessonList.map((lesson) => (
               <Link
                 key={lesson.id}
-                to={`/lesson/${lesson.id}`}
+                to={`/lesson/${LESSON_SLUGS[lesson.id]}`}
                 className="flex items-center justify-between p-4 rounded-xl border border-border bg-card hover:border-primary hover:bg-primary/5 transition-all"
               >
                 <span className="flex items-center gap-3">

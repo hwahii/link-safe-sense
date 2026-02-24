@@ -9,8 +9,9 @@ import PracticeSection from "@/components/PracticeSection";
 import SmsMessage from "@/components/SmsMessage";
 import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Lock } from "lucide-react";
+import { ArrowRight, ChevronRight, Lock } from "lucide-react";
 
 const Lesson = () => {
   const { id } = useParams<{ id: string }>();
@@ -513,6 +514,19 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     <KeyTakeaway>
       縮網址會把門牌藏起來，讓你無法判斷安全性。遇到縮網址，不要點，自己去官方 app 或網站查。
     </KeyTakeaway>
+
+    <Collapsible>
+      <CollapsibleTrigger className="flex items-center gap-2 mt-4 text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
+        <ChevronRight className="h-4 w-4 transition-transform duration-200 [[data-state=open]>&]:rotate-90" />
+        進階技巧：用 AI 工具幫你看門牌
+      </CollapsibleTrigger>
+      <CollapsibleContent>
+        <div className="mt-2 ml-6 p-4 rounded-lg bg-muted/50 border border-border text-sm space-y-2">
+          <p>如果你真的很想知道縮網址背後是什麼，可以把網址貼給 <strong>ChatGPT</strong> 或 <strong>Claude</strong> 這類 AI 工具，請它幫你展開。</p>
+          <p>AI 沒辦法保證那個網站是安全的，但至少能讓你<strong>看到門牌</strong>，然後你就能用前面學的技巧來判斷。</p>
+        </div>
+      </CollapsibleContent>
+    </Collapsible>
 
     <PracticeSection>
       <LineChat

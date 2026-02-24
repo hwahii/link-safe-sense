@@ -432,8 +432,8 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       <UrlBreakdown
         parts={[
           { text: "https://", type: "neutral" },
-          { text: "www.esunbank.com.tw", type: "safe", label: "門牌：玉山銀行" },
-          { text: "/personal/loan", type: "neutral" },
+          { text: "shopee.tw", type: "safe", label: "門牌", sublabel: "（蝦皮）" },
+          { text: "/sale/shoes", type: "neutral" },
         ]}
       />
     </div>
@@ -443,15 +443,15 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       <UrlBreakdown
         parts={[
           { text: "https://", type: "neutral" },
-          { text: "secure-banking.net", type: "danger", label: "門牌：不明網站" },
-          { text: "/esunbank/personal/loan", type: "neutral", label: "這只是路徑，不是門牌" },
+          { text: "cheap-deal.net", type: "danger", label: "門牌", sublabel: "（不明網站）" },
+          { text: "/shopee/sale", type: "neutral", label: "只是路徑" },
         ]}
       />
     </div>
 
-    <p>兩個都有「esunbank」（玉山銀行），但意義完全不同。</p>
-    <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">esunbank.com.tw</span>，這是玉山銀行自己的網站。</p>
-    <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">secure-banking.net</span>，「esunbank」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 esunbank 的頁面。</p>
+    <p>兩個都有「shopee」，但意義完全不同。</p>
+    <p className="mt-3">A 的門牌是 <span className="text-safe font-bold">shopee.tw</span>，這是蝦皮自己的網站。</p>
+    <p className="mt-3">B 的門牌是 <span className="text-danger font-bold">cheap-deal.net</span>，「shopee」出現在斜線後面，那只是頁面路徑，任何人都可以在自己的網站裡建一個叫 shopee 的頁面。</p>
 
     <KeyTakeaway>
       品牌名稱要出現在斜線「前面」才算數。出現在斜線「後面」的不代表任何東西。

@@ -4,11 +4,12 @@ import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
 import LineChat from "@/components/LineChat";
 import KeyTakeaway from "@/components/KeyTakeaway";
+import PracticeSection from "@/components/PracticeSection";
 import SmsMessage from "@/components/SmsMessage";
 import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Lock } from "lucide-react";
 
 const Lesson = () => {
   const { id } = useParams<{ id: string }>();
@@ -66,16 +67,27 @@ const Lesson = () => {
 
           {renderContent()}
 
-          {quizDone && nextLesson && (
-            <div className="mt-8 text-center">
-              <Link to={nextLesson}>
-                <Button size="lg" className="text-lg py-6 px-8 rounded-xl font-bold">
-                  下一篇 <ArrowRight className="w-5 h-5 ml-2" />
+          {nextLesson && (
+            <div className="mt-8 text-center space-y-2">
+              {!quizDone && (
+                <p className="text-sm text-muted-foreground">完成上方練習後即可前往下一篇</p>
+              )}
+              <Link to={nextLesson} onClick={(e) => !quizDone && e.preventDefault()}>
+                <Button
+                  size="lg"
+                  className="text-lg py-6 px-8 rounded-xl font-bold"
+                  disabled={!quizDone}
+                >
+                  {quizDone ? (
+                    <>下一篇 <ArrowRight className="w-5 h-5 ml-2" /></>
+                  ) : (
+                    <><Lock className="w-4 h-4 mr-2" /> 下一篇</>
+                  )}
                 </Button>
               </Link>
             </div>
           )}
-          {quizDone && !nextLesson && (
+          {!nextLesson && quizDone && (
             <div className="mt-8 text-center space-y-4">
               <p className="text-lg font-bold text-primary">🎉 恭喜你完成所有課程！</p>
               <Link to="/quiz">
@@ -83,6 +95,14 @@ const Lesson = () => {
                   再做一次測驗
                 </Button>
               </Link>
+            </div>
+          )}
+          {!nextLesson && !quizDone && (
+            <div className="mt-8 text-center space-y-2">
+              <p className="text-sm text-muted-foreground">完成上方練習後即可結束課程</p>
+              <Button size="lg" className="text-lg py-6 px-8 rounded-xl font-bold" disabled>
+                <Lock className="w-4 h-4 mr-2" /> 完成課程
+              </Button>
             </div>
           )}
         </div>
@@ -125,8 +145,7 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       判斷一個網址安不安全，最重要的就是看那個「門牌」。
     </KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <SmsMessage
         sender="+886-912-345-678"
         content="您的包裹因地址不完整無法配送，請點此確認：https://tw-post-service.com/tracking?id=889712"
@@ -143,7 +162,7 @@ const Lesson1 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！tw-post-service.com 是門牌，/tracking?id=889712 是房間號碼。你已經學會分辨了！但這個門牌是不是真的郵局？我們下一篇會教你怎麼判斷。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -217,8 +236,7 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。
     </KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <EmailCard
         sender="service@taiwanbank.top"
         subject="您的帳戶出現異常登入，請立即驗證"
@@ -235,7 +253,7 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！.top 是任何人都能便宜註冊的網域後綴。正規的台灣銀行會使用 .com.tw，不會用 .top。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -270,8 +288,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </ul>
     <KeyTakeaway>不管前面塞了什麼，最後那一段才是真正的主人。</KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <LineChat
         name="媽媽"
         messages={[
@@ -289,7 +306,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！看最後一個點的前後。門牌是 special-sale.net，前面的 shopee.tw 只是裝飾。這不是蝦皮的網站。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -355,8 +372,7 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       這些差異在手機螢幕上特別難發現。看到品牌名稱的時候，值得多花兩秒鐘確認。
     </KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <LineChat
         name="同事 小陳"
         messages={[
@@ -374,7 +390,7 @@ const Lesson4 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！goog1e.com 不是 google.com。字母 l 和數字 1 在手機上看起來幾乎一樣。這不是 Google 的網站。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -413,8 +429,7 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       品牌名稱要出現在斜線「前面」才算數。出現在斜線「後面」的不代表任何東西。
     </KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <SmsMessage
         sender="+886-2-8888-6666"
         content="玉山銀行提醒您，您的信用卡帳單已逾期，請立即處理：https://alert-service.com/esunbank/billing/overdue"
@@ -430,7 +445,7 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！門牌是 alert-service.com，跟玉山銀行沒有關係。esunbank 出現在斜線後面的路徑裡，那只是頁面名稱，任何人都能建。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -456,8 +471,7 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 
     <p>朋友說某個東西很便宜？打開那個購物 app 自己搜。銀行通知你有問題？打開銀行 app 自己查。不要從別人給你的連結進去。</p>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <LineChat
         name="學長"
         isGroup
@@ -477,7 +491,7 @@ const Lesson6 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！就算是認識的人傳的，你也不確定他是不是被盜帳號、或他自己也不知道這是詐騙。縮網址看不到門牌，不點，自己查。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 
@@ -514,8 +528,7 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 
     <KeyTakeaway>@ 後面才是門牌。@ 前面任何人都可以隨便取。</KeyTakeaway>
 
-    <div className="mt-8 border-t border-border pt-6">
-      <p className="font-bold text-lg mb-2">🧪 情境練習</p>
+    <PracticeSection>
       <EmailCard
         sender="shopee.notification@gmail.com"
         subject="您的訂單已出貨，點此查看物流進度"
@@ -532,7 +545,7 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
         wrongFeedback="沒關係！@ 後面才是門牌。這封信的門牌是 gmail.com，不是蝦皮的 shopee.tw。@ 前面的名稱任何人都能取，不代表任何東西。"
         onComplete={onQuizDone}
       />
-    </div>
+    </PracticeSection>
   </div>
 );
 

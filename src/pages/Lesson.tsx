@@ -286,7 +286,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       parts={[
         { text: "https://", type: "neutral" },
         { text: "mail.", type: "neutral", label: "大樓（子網域）" },
-        { text: "google.com", type: "safe", label: "← 土地（網域）" },
+        { text: "google.com", type: "safe", label: "土地（網域）" },
         { text: "/mail/#inbox", type: "neutral", label: "房間（路徑）" },
       ]}
     />
@@ -300,7 +300,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       parts={[
         { text: "https://", type: "neutral" },
         { text: "shopee.tw.", type: "danger", label: "假大樓（裝成蝦皮）" },
-        { text: "order-check.net", type: "danger", label: "← 真正的土地主人" },
+        { text: "order-check.net", type: "danger", label: "真正的土地主人" },
         { text: "/detail", type: "neutral" },
       ]}
     />

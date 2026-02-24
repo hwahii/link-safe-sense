@@ -276,7 +276,7 @@ const Lesson3 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
       <div className="flex items-start gap-3 p-3 rounded-lg bg-muted/50">
         <span className="text-lg">🚪</span>
-        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的走道和房間，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.google.com/mail/#inbox</code> 就是郵件大樓裡的「收件匣」。</div>
+        <div><span className="font-bold">房間（路徑）</span>＝大樓裡的房間，例如 <code className="font-mono bg-muted px-1.5 py-0.5 rounded">mail.google.com/mail/#inbox</code> 就是郵件大樓裡的「收件匣」。</div>
       </div>
     </div>
 

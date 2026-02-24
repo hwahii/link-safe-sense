@@ -2,6 +2,7 @@ import { useLocation, Link } from "react-router-dom";
 import { CheckCircle, XCircle, ArrowRight, TrendingUp, TrendingDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import PageSEO from "@/components/PageSEO";
 
 interface QuizResultState {
   answers: string[];
@@ -147,6 +148,12 @@ const QuizResult = () => {
   };
 
   return (
+    <>
+    <PageSEO
+      title="測驗結果"
+      description="查看你的詐騙連結辨識測驗結果與詳解。"
+      path="/quiz/result"
+    />
     <main className="min-h-screen bg-background">
       <div className="max-w-lg mx-auto px-5 py-8">
         {/* Score */}
@@ -247,6 +254,7 @@ const QuizResult = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

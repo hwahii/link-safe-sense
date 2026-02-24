@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
 import { ChevronLeft } from "lucide-react";
+import PageSEO from "@/components/PageSEO";
 
 interface QuizQuestion {
   id: number;
@@ -98,6 +99,12 @@ const Quiz = () => {
   const isUrl = (text: string) => text.startsWith("http");
 
   return (
+    <>
+    <PageSEO
+      title="詐騙連結測驗"
+      description="5 題快速測驗，測試你分辨詐騙連結的能力。"
+      path="/quiz"
+    />
     <main className="min-h-screen bg-background">
       <div className="max-w-lg mx-auto px-5 py-8">
         <div className="mb-8">
@@ -142,6 +149,7 @@ const Quiz = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 

@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import { ArrowRight } from "lucide-react";
 import { LESSON_TITLES } from "@/constants/lessons";
+import PageSEO from "@/components/PageSEO";
 
 const lessonList = Object.entries(LESSON_TITLES).map(([id, title]) => ({
   id: Number(id),
@@ -11,6 +12,11 @@ const lessonList = Object.entries(LESSON_TITLES).map(([id, title]) => ({
 const Lessons = () => {
   return (
     <>
+      <PageSEO
+        title="課程列表"
+        description="七篇圖解教學，從網址基礎到電子郵件門牌，完整學會分辨詐騙連結。"
+        path="/lessons"
+      />
       <LessonNav />
       <main className="min-h-screen bg-background">
         <div className="max-w-lg mx-auto px-5 py-8">

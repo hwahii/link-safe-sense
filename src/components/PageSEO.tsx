@@ -8,7 +8,7 @@ interface PageSEOProps {
 }
 
 const SITE_NAME = "學會分辨詐騙連結";
-const BASE_URL = "https://uurl.cc";
+const BASE_URL = "https://learnurl.hwahii.tw";
 
 const PageSEO = ({ title, description, path = "/", jsonLd }: PageSEOProps) => {
   const fullTitle = path === "/" ? title : `${title}｜${SITE_NAME}`;

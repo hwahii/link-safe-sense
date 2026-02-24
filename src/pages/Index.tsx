@@ -21,7 +21,7 @@ const Index = () => {
     "@type": "WebSite",
     "name": "學會分辨詐騙連結",
     "description": "不用懂電腦，七篇圖解教學帶你學會看懂網址門牌、分辨詐騙連結。",
-    "url": "https://uurl.cc",
+    "url": "https://learnurl.hwahii.tw",
     "inLanguage": "zh-Hant",
   };
 

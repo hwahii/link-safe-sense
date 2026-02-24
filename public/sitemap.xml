@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://uurl.cc/</loc>
+    <loc>https://learnurl.hwahii.tw/</loc>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/1-what-is-url</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/1-what-is-url</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/2-domain-suffixes</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/2-domain-suffixes</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/3-subdomains</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/3-subdomains</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/4-lookalike-domains</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/4-lookalike-domains</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/5-brand-in-domain</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/5-brand-in-domain</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/6-shortened-urls</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/6-shortened-urls</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lesson/7-email-addresses</loc>
+    <loc>https://learnurl.hwahii.tw/lesson/7-email-addresses</loc>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/lessons</loc>
+    <loc>https://learnurl.hwahii.tw/lessons</loc>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://uurl.cc/quiz</loc>
+    <loc>https://learnurl.hwahii.tw/quiz</loc>
     <priority>0.5</priority>
   </url>
 </urlset>

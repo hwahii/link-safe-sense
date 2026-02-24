@@ -10,6 +10,7 @@ interface QuizResultState {
 const questions = [
   {
     id: 1,
+    concept: "主網域辨識",
     question: "在兩個選項中選擇你覺得安全的那個：",
     optionA: "https://shopee.tw/order/detail",
     optionB: "https://shopee.tw.order-check.net/detail",
@@ -20,6 +21,7 @@ const questions = [
   },
   {
     id: 2,
+    concept: "網域後綴",
     question: "在兩個選項中選擇你覺得安全的那個：",
     optionA: "https://www.cathaybk.com.tw/login",
     optionB: "https://www.cathaybk.xyz/login",
@@ -30,6 +32,7 @@ const questions = [
   },
   {
     id: 3,
+    concept: "字元偽裝",
     question: "在兩個選項中選擇你覺得安全的那個：",
     optionA: "https://www.gooogle.com/search",
     optionB: "https://www.google.com/search",
@@ -40,6 +43,7 @@ const questions = [
   },
   {
     id: 4,
+    concept: "路徑偽裝",
     question: "在兩個選項中選擇你覺得安全的那個：",
     optionA: "https://www.esunbank.com.tw/personal/loan",
     optionB: "https://secure-banking.net/esunbank/personal/loan",
@@ -50,6 +54,7 @@ const questions = [
   },
   {
     id: 5,
+    concept: "縮網址",
     question:
       "你在 LINE 收到朋友傳來的訊息：「這個超便宜！https://bit.ly/3OxxiZi」，你會怎麼做？",
     optionA: "直接點開看看",
@@ -106,7 +111,10 @@ const QuizResult = () => {
 
             return (
               <div key={q.id} className="rounded-2xl border border-border bg-card p-5">
-                <p className="font-medium text-sm text-muted-foreground mb-3">第 {q.id} 題</p>
+                <div className="flex items-center gap-2 mb-3">
+                  <p className="font-medium text-sm text-muted-foreground">第 {q.id} 題</p>
+                  <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">{q.concept}</span>
+                </div>
                 
                 <div className="space-y-2 mb-4">
                   {(["A", "B"] as const).map((opt) => {

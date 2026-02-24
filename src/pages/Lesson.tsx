@@ -68,7 +68,7 @@ const Lesson = () => {
           {renderContent()}
 
           {nextLesson && (
-            <div className="mt-8 text-center space-y-2">
+            <div className="mt-8 text-center space-y-4">
               {!quizDone && (
                 <p className="text-sm text-muted-foreground">完成上方練習後即可前往下一篇</p>
               )}

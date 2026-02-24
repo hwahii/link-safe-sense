@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
+import { ChevronLeft } from "lucide-react";
 
 interface QuizQuestion {
   id: number;
@@ -57,13 +58,12 @@ const Quiz = () => {
   const progress = ((currentIndex) / questions.length) * 100;
 
   const handleAnswer = (answer: "A" | "B") => {
-    const newAnswers = [...answers, answer];
+    const newAnswers = [...answers.slice(0, currentIndex), answer];
     setAnswers(newAnswers);
 
     if (currentIndex < questions.length - 1) {
       setTimeout(() => setCurrentIndex(currentIndex + 1), 300);
     } else {
-      // Calculate score and navigate
       const score = newAnswers.reduce((acc, ans, idx) => {
         return acc + (ans === questions[idx].correctAnswer ? 1 : 0);
       }, 0);
@@ -73,14 +73,27 @@ const Quiz = () => {
     }
   };
 
+  const handleBack = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
   const isUrl = (text: string) => text.startsWith("http");
 
   return (
     <main className="min-h-screen bg-background">
       <div className="max-w-lg mx-auto px-5 py-8">
         <div className="mb-8">
-          <div className="flex justify-between text-sm text-muted-foreground mb-2">
-            <span>第 {currentIndex + 1} 題</span>
+          <div className="flex justify-between items-center text-sm text-muted-foreground mb-2">
+            <button
+              onClick={handleBack}
+              disabled={currentIndex === 0}
+              className="flex items-center gap-1 disabled:opacity-0 transition-opacity text-primary"
+            >
+              <ChevronLeft className="w-4 h-4" />
+              上一題
+            </button>
             <span>{currentIndex + 1} / {questions.length}</span>
           </div>
           <Progress value={progress} className="h-2" />

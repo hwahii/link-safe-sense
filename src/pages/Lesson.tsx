@@ -68,9 +68,9 @@ const Lesson = () => {
           {renderContent()}
 
           {nextLesson && (
-            <div className="mt-8 text-center space-y-4">
+            <div className="mt-12 text-center">
               {!quizDone && (
-                <p className="text-sm text-muted-foreground">完成上方練習後即可前往下一篇</p>
+                <p className="text-sm text-muted-foreground mb-4">完成上方練習後即可前往下一篇</p>
               )}
               <Link to={nextLesson} onClick={(e) => !quizDone && e.preventDefault()}>
                 <Button

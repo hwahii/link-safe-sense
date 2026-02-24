@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { LESSON_TITLES, LESSON_READING_TIME } from "@/constants/lessons";
+import { LESSON_TITLES, LESSON_READING_TIME, LESSON_SLUGS, SLUG_TO_ID } from "@/constants/lessons";
 import { LESSON_DESCRIPTIONS } from "@/constants/lessonDescriptions";
 import { useParams, Link, useSearchParams } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
@@ -17,10 +17,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight, Lock, ArrowLeft } from "lucide-react";
 
 const Lesson = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [searchParams] = useSearchParams();
   const fromQuiz = searchParams.get("from") === "quiz";
-  const lessonId = parseInt(id || "1");
+  const lessonId = SLUG_TO_ID[slug || ""] || parseInt(slug || "1");
   const [quizDone, setQuizDone] = useState(false);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Lesson = () => {
     setQuizDone(false);
   }, [lessonId]);
 
-  const nextLesson = lessonId < 7 ? `/lesson/${lessonId + 1}` : null;
+  const nextLesson = lessonId < 7 ? `/lesson/${LESSON_SLUGS[lessonId + 1]}` : null;
 
   const renderContent = () => {
     switch (lessonId) {
@@ -58,7 +58,7 @@ const Lesson = () => {
       <PageSEO
         title={`第 ${lessonId} 篇：${titles[lessonId]}`}
         description={LESSON_DESCRIPTIONS[lessonId] ?? ""}
-        path={`/lesson/${lessonId}`}
+        path={`/lesson/${LESSON_SLUGS[lessonId]}`}
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "Article",

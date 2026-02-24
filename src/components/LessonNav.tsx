@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, ArrowRight, Trophy, Home, BookOpen, ClipboardList } from "lucide-react";
-import { LESSON_TITLES, TOTAL_LESSONS } from "@/constants/lessons";
+import { LESSON_TITLES, LESSON_SLUGS, SLUG_TO_ID, TOTAL_LESSONS } from "@/constants/lessons";
 import {
   Sheet,
   SheetContent,
@@ -19,8 +19,8 @@ const lessonList = Object.entries(LESSON_TITLES).map(([id, title]) => ({
 const LessonNav: React.FC = () => {
   const location = useLocation();
   const isLesson = location.pathname.startsWith("/lesson/");
-  const lessonMatch = location.pathname.match(/\/lesson\/(\d+)/);
-  const currentLesson = lessonMatch ? parseInt(lessonMatch[1]) : 0;
+  const slug = location.pathname.replace("/lesson/", "");
+  const currentLesson = SLUG_TO_ID[slug] || 0;
 
   const hasQuizResult = React.useMemo(() => {
     try {
@@ -52,7 +52,7 @@ const LessonNav: React.FC = () => {
                   {lessonList.map((lesson) => (
                     <SheetClose asChild key={lesson.id}>
                       <Link
-                        to={`/lesson/${lesson.id}`}
+                        to={`/lesson/${LESSON_SLUGS[lesson.id]}`}
                         className={`flex items-center justify-between p-3 rounded-xl border transition-all ${
                           currentLesson === lesson.id
                             ? "border-primary bg-primary/10"

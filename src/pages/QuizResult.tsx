@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import PageSEO from "@/components/PageSEO";
 import Footer from "@/components/Footer";
+import { LESSON_SLUGS } from "@/constants/lessons";
 
 interface QuizResultState {
   answers: string[];
@@ -25,7 +26,7 @@ const questions = [
     correctAnswer: "A",
     explanation:
       "兩個網址前面都寫著 cathaybk（國泰世華），差別在結尾。.com.tw 是台灣正式註冊的網域，銀行、企業都會用。.xyz 是非常便宜、任何人都能隨手註冊的網域，正規機構幾乎不會使用。看到 .xyz、.top、.click 這類結尾，要特別小心。",
-    lessonLink: "/lesson/2",
+    lessonLink: `/lesson/${LESSON_SLUGS[2]}`,
   },
   {
     id: 2,
@@ -36,7 +37,7 @@ const questions = [
     correctAnswer: "A",
     explanation:
       "你可能看到 B 裡面也有「shopee.tw」就覺得是蝦皮。但網址就像門牌地址，真正代表「這是誰家」的是最後面那一段。B 的主人其實是 order-check.net，前面的 shopee.tw 只是裝飾，就像有人在自家門口掛了蝦皮的招牌，但那不是蝦皮的店。",
-    lessonLink: "/lesson/3",
+    lessonLink: `/lesson/${LESSON_SLUGS[3]}`,
   },
   {
     id: 3,
@@ -47,7 +48,7 @@ const questions = [
     correctAnswer: "B",
     explanation:
       "A 的 google 多了一個 o。詐騙網址常常會在品牌名稱上做很小的手腳，多一個字母、少一個字母、或是用長得很像的字元替換，賭你不會逐字去看。收到連結的時候，品牌名稱的部分值得多看一眼。",
-    lessonLink: "/lesson/4",
+    lessonLink: `/lesson/${LESSON_SLUGS[4]}`,
   },
   {
     id: 4,
@@ -58,7 +59,7 @@ const questions = [
     correctAnswer: "A",
     explanation:
       "跟第 1 題類似，B 裡面雖然看得到「esunbank」，但它出現在斜線後面，那只是網頁路徑，不是網站的主人。B 的主人是 secure-banking.net，跟玉山銀行沒有任何關係。記得：品牌名稱要出現在斜線「前面」才算數。",
-    lessonLink: "/lesson/5",
+    lessonLink: `/lesson/${LESSON_SLUGS[5]}`,
   },
   {
     id: 5,
@@ -70,7 +71,7 @@ const questions = [
     correctAnswer: "B",
     explanation:
       "bit.ly 是一種「縮網址」服務，它把原本的網址縮短了，所以你完全看不出這個連結到底會帶你去哪裡。不管是誰傳給你的，只要你看不出網址的真面目，最安全的做法就是不要點，自己去打開你熟悉的 app 或網站找。",
-    lessonLink: "/lesson/6",
+    lessonLink: `/lesson/${LESSON_SLUGS[6]}`,
   },
 ];
 
@@ -247,7 +248,7 @@ const QuizResult = () => {
               重新測驗
             </Button>
           </Link>
-          <Link to="/lesson/1">
+          <Link to={`/lesson/${LESSON_SLUGS[1]}`}>
             <Button size="lg" className="w-full text-lg py-6 rounded-xl font-bold">
               從頭開始學習
             </Button>

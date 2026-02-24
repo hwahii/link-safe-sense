@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Shield, BookOpen } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
 import Footer from "@/components/Footer";
+import { LESSON_SLUGS } from "@/constants/lessons";
 
 const Index = () => {
   const [hasHistory, setHasHistory] = useState(false);
@@ -61,7 +62,7 @@ const Index = () => {
               {hasHistory ? "再測一次" : "開始測驗"}
             </Button>
           </Link>
-          <Link to="/lesson/1" className="block">
+          <Link to={`/lesson/${LESSON_SLUGS[1]}`} className="block">
             <Button size="lg" variant="outline" className="w-full text-lg py-6 rounded-xl font-bold border-2 hover-scale">
               <BookOpen className="w-5 h-5 mr-2" />
               直接開始學習

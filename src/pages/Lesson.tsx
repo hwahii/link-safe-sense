@@ -459,18 +459,18 @@ const Lesson5 = ({ onQuizDone }: { onQuizDone: () => void }) => (
 
     <PracticeSection>
       <SmsMessage
-        sender="+886-2-8888-6666"
-        content="玉山銀行提醒您，您的信用卡帳單已逾期，請立即處理：https://alert-service.com/esunbank/billing/overdue"
+        sender="0900-123-456"
+        content="蝦皮購物通知：您的包裹出現異常，請確認：https://parcel-check.net/shopee/order/status"
       />
       <LessonQuiz
-        question="這是玉山銀行的網站嗎？"
+        question="這是蝦皮的網站嗎？"
         options={[
-          { label: "A", text: "是，因為網址裡有 esunbank" },
-          { label: "B", text: "不是，esunbank 出現在斜線後面" },
+          { label: "A", text: "是，因為網址裡有 shopee" },
+          { label: "B", text: "不是，shopee 只出現在路徑裡" },
         ]}
         correctAnswer="B"
-        correctFeedback="門牌是 alert-service.com，跟玉山銀行沒有關係。esunbank 出現在斜線後面的路徑裡，那只是頁面名稱，任何人都能建。"
-        wrongFeedback="沒關係！門牌是 alert-service.com，跟玉山銀行沒有關係。esunbank 出現在斜線後面的路徑裡，那只是頁面名稱，任何人都能建。"
+        correctFeedback="門牌是 parcel-check.net，跟蝦皮沒有關係。shopee 只是路徑裡的房間名稱，任何人都能取。"
+        wrongFeedback="沒關係！門牌是 parcel-check.net，跟蝦皮沒有關係。shopee 只是路徑裡的房間名稱，任何人都能取。"
         onComplete={onQuizDone}
       />
     </PracticeSection>

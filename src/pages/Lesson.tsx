@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { LESSON_TITLES } from "@/constants/lessons";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useSearchParams } from "react-router-dom";
 import LessonNav from "@/components/LessonNav";
 import UrlBreakdown from "@/components/UrlBreakdown";
 import LineChat from "@/components/LineChat";
@@ -11,10 +11,12 @@ import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronRight, Lock } from "lucide-react";
+import { ArrowRight, ChevronRight, Lock, ArrowLeft } from "lucide-react";
 
 const Lesson = () => {
   const { id } = useParams<{ id: string }>();
+  const [searchParams] = useSearchParams();
+  const fromQuiz = searchParams.get("from") === "quiz";
   const lessonId = parseInt(id || "1");
   const [quizDone, setQuizDone] = useState(false);
 
@@ -51,6 +53,16 @@ const Lesson = () => {
   return (
     <>
       <LessonNav />
+      {fromQuiz && (
+        <div className="bg-muted/50 border-b border-border">
+          <div className="max-w-lg mx-auto px-5 py-2">
+            <Link to="/quiz/result" className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline">
+              <ArrowLeft className="w-4 h-4" />
+              回到測驗結果
+            </Link>
+          </div>
+        </div>
+      )}
       <main className="min-h-screen bg-background">
         <div className="max-w-lg mx-auto px-5 py-8">
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">

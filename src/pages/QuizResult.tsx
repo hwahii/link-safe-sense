@@ -225,7 +225,7 @@ const QuizResult = () => {
                 </div>
 
                 <p className="text-base leading-relaxed text-foreground">{q.explanation}</p>
-                <Link to={q.lessonLink} className="inline-flex items-center gap-1 mt-4 text-primary font-medium hover:underline">
+                <Link to={`${q.lessonLink}?from=quiz`} className="inline-flex items-center gap-1 mt-4 text-primary font-medium hover:underline">
                   學習這個概念 <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>

@@ -11,6 +11,7 @@ import SmsMessage from "@/components/SmsMessage";
 import EmailCard from "@/components/EmailCard";
 import LessonQuiz from "@/components/LessonQuiz";
 import PageSEO from "@/components/PageSEO";
+import Footer from "@/components/Footer";
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/ui/collapsible";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronRight, Lock, ArrowLeft } from "lucide-react";
@@ -132,6 +133,7 @@ const Lesson = () => {
           )}
         </div>
       </main>
+      <Footer />
     </>
   );
 };

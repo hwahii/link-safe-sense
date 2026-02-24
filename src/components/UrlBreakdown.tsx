@@ -19,7 +19,7 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
           {/* URL row */}
           <tr>
             {parts.map((part, i) => (
-              <td key={i} className="p-0 align-bottom">
+              <td key={i} className="p-0 px-1 align-bottom">
                 <span
                   className={`font-mono text-base sm:text-lg whitespace-nowrap inline-block px-0.5 py-0.5 rounded ${
                     part.label ? "border-b-2 border-muted-foreground/30 pb-1" : ""
@@ -39,7 +39,7 @@ const UrlBreakdown: React.FC<UrlBreakdownProps> = ({ parts }) => {
           {/* Label row */}
           <tr>
             {parts.map((part, i) => (
-              <td key={i} className="p-0 pt-1 align-top text-center">
+              <td key={i} className="p-0 px-1 pt-1 align-top text-center">
                 {part.label && (
                   <span className="flex flex-col items-center font-sans">
                     <span className="text-sm text-muted-foreground leading-snug">{part.label}</span>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Progress } from "@/components/ui/progress";
-import { ChevronLeft } from "lucide-react";
+import { ChevronLeft, CheckCircle, XCircle } from "lucide-react";
 import PageSEO from "@/components/PageSEO";
 
 interface QuizQuestion {
@@ -139,24 +139,38 @@ const Quiz = () => {
           {(["A", "B"] as const).map((opt) => {
             const text = opt === "A" ? current.optionA : current.optionB;
             const isSelected = selectedAnswer === opt;
+            const isCorrectOption = selectedAnswer && opt === current.correctAnswer;
+            const isWrongSelection = isSelected && selectedAnswer !== current.correctAnswer;
             return (
               <button
                 key={`${currentIndex}-${opt}`}
                 onClick={() => handleAnswer(opt)}
                 disabled={selectedAnswer !== null}
                 className={`w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 transition-all ${
-                  isSelected
-                    ? "border-primary bg-primary/5"
+                  isCorrectOption
+                    ? "border-safe/60 bg-safe/5"
+                    : isWrongSelection
+                    ? "border-danger/60 bg-danger/5"
+                    : selectedAnswer
+                    ? "border-border bg-white opacity-50"
                     : "border-border bg-white [@media(hover:hover)]:hover:border-primary [@media(hover:hover)]:hover:bg-primary/5 active:border-primary active:bg-primary/5"
                 }`}
               >
                 <span className="flex items-center gap-3">
-                  <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-primary font-bold text-sm shrink-0">
+                  <span className={`inline-flex items-center justify-center w-8 h-8 rounded-full font-bold text-sm shrink-0 ${
+                    isCorrectOption
+                      ? "bg-safe/15 text-safe"
+                      : isWrongSelection
+                      ? "bg-danger/15 text-danger"
+                      : "bg-primary/10 text-primary"
+                  }`}>
                     {opt}
                   </span>
                   <span className={`leading-relaxed break-all ${isUrl(text) ? "font-mono text-sm" : "text-base"}`}>
                     {text}
                   </span>
+                  {isCorrectOption && <CheckCircle className="w-5 h-5 text-safe shrink-0 ml-auto" />}
+                  {isWrongSelection && <XCircle className="w-5 h-5 text-danger shrink-0 ml-auto" />}
                 </span>
               </button>
             );

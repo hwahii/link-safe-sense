@@ -131,7 +131,7 @@ const Quiz = () => {
             const text = opt === "A" ? current.optionA : current.optionB;
             return (
               <button
-                key={opt}
+                key={`${currentIndex}-${opt}`}
                 onClick={() => handleAnswer(opt)}
                 className="w-full min-h-[60px] px-5 py-4 rounded-xl text-left border-2 border-border bg-white hover:border-primary hover:bg-primary/5 transition-all"
               >

@@ -606,7 +606,7 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <KeyTakeaway>找到電子郵件地址，直接看 @ 後面的門牌。門牌不對，就不要相信。</KeyTakeaway>
+    <KeyTakeaway>收到電子郵件時，不要看名稱，直接看 @ 後面的門牌。門牌不對，就不要相信。</KeyTakeaway>
 
     <PracticeSection>
       <EmailCard

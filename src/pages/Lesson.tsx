@@ -210,7 +210,11 @@ const Lesson2 = ({ onQuizDone }: { onQuizDone: () => void }) => (
     </div>
     <p className="text-sm text-muted-foreground -mt-2 mb-4">這些結尾便宜又不需要審核，詐騙網站很愛用。</p>
 
-    <p className="mt-4 font-bold text-primary">重點：台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。</p>
+    <div className="mt-6 bg-primary/10 border-2 border-primary/30 rounded-xl p-5">
+      <p className="text-xs font-bold tracking-widest text-primary/60 mb-2">📌 記住這個</p>
+      <p className="font-bold text-primary text-lg">台灣的正規機構會使用有審核機制的結尾，不會用這些便宜的門牌。</p>
+      <p className="text-sm text-muted-foreground mt-2">看到 <span className="font-mono font-semibold text-foreground">.com.tw</span> 或 <span className="font-mono font-semibold text-foreground">.gov.tw</span> 結尾，可信度較高；看到 <span className="font-mono font-semibold text-foreground">.top</span>、<span className="font-mono font-semibold text-foreground">.xyz</span> 這類結尾，要提高警覺。</p>
+    </div>
 
     <div className="mt-8 border-t border-border pt-6">
       <p className="font-bold text-lg mb-2">🧪 情境練習</p>

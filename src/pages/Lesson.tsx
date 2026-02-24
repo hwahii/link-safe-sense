@@ -586,7 +586,10 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       ]}
     />
 
-    <p className="mt-4">所以你會判斷的東西全部適用：</p>
+    <p className="mt-4">跟網址一樣，<strong>@ 後面才是門牌</strong>。而 @ 前面的名稱，任何人都可以隨便取——就像你申請 Gmail 時可以自己選帳號名稱一樣。</p>
+    <p className="mt-4">也就是說，<strong>寄件者的「名稱」也是可以自己設定的</strong>，所以就算顯示名稱寫「蝦皮購物」或「國泰世華銀行」，也不代表真的是他們寄的。你要看的是 @ 後面的門牌。</p>
+
+    <p className="mt-4">來看幾個例子：</p>
 
     <div className="my-4 space-y-3">
       <div className="px-4 py-3 rounded-xl bg-safe/10 border border-safe/20">
@@ -603,11 +606,12 @@ const Lesson7 = ({ onQuizDone }: { onQuizDone: () => void }) => (
       </div>
     </div>
 
-    <KeyTakeaway>@ 後面才是門牌。@ 前面任何人都可以隨便取。</KeyTakeaway>
+    <KeyTakeaway>@ 後面才是門牌。@ 前面的帳號名稱和顯示名稱，任何人都可以隨便取。</KeyTakeaway>
 
     <PracticeSection>
       <EmailCard
         sender="shopee.notification@gmail.com"
+        displayName="蝦皮購物"
         subject="您的訂單已出貨，點此查看物流進度"
         content="親愛的顧客您好，您的訂單 #SP2026022401 已出貨，請點擊下方連結查看物流進度。"
       />

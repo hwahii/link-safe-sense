@@ -2,11 +2,12 @@ import React from "react";
 
 interface EmailCardProps {
   sender: string;
+  displayName?: string;
   subject: string;
   content: string;
 }
 
-const EmailCard: React.FC<EmailCardProps> = ({ sender, subject, content }) => {
+const EmailCard: React.FC<EmailCardProps> = ({ sender, displayName, subject, content }) => {
   return (
     <div className="my-6 rounded-2xl overflow-hidden border border-border shadow-sm max-w-sm mx-auto bg-white">
       <div className="p-4 space-y-3">
@@ -16,6 +17,7 @@ const EmailCard: React.FC<EmailCardProps> = ({ sender, subject, content }) => {
           </div>
           <div className="min-w-0">
             <p className="text-sm text-muted-foreground">寄件者</p>
+            {displayName && <p className="font-bold text-sm text-foreground">{displayName}</p>}
             <p className="font-mono text-sm break-all text-foreground">{sender}</p>
           </div>
         </div>

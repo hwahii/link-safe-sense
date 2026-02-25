@@ -34,24 +34,24 @@ const Index = () => {
       jsonLd={websiteJsonLd}
     />
     <main className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-primary/8 via-primary/4 to-background pt-6 pb-6 sm:pt-16 sm:pb-10">
+      {/* Hero + Content in one flow */}
+      <div className="relative overflow-hidden bg-gradient-to-b from-primary/8 via-primary/4 to-transparent">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
         </div>
 
-        <div className="relative max-w-lg mx-auto px-5">
-          <div className="text-center mb-4 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/30 mb-4 shadow-md ring-1 ring-primary/10">
+        <div className="relative max-w-lg mx-auto px-5 pt-6 sm:pt-14">
+          <div className="text-center mb-6 animate-fade-in">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/30 mb-3 shadow-md ring-1 ring-primary/10">
               <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">
+            <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-3">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-emerald-500">馬上看穿！</span>
               <br />
               <span className="text-foreground">簡單學會分辨詐騙連結</span>
             </h1>
-            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mt-4 animate-fade-in" style={{ animationDelay: "0.05s", animationFillMode: "both" }}>
+            <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground animate-fade-in" style={{ animationDelay: "0.05s", animationFillMode: "both" }}>
               <span className="inline-flex items-center gap-1"><BookOpen className="w-3.5 h-3.5" />七篇教學</span>
               <span className="text-border">|</span>
               <span className="inline-flex items-center gap-1"><Sparkles className="w-3.5 h-3.5" />完全免費</span>
@@ -62,7 +62,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-5 py-8 sm:py-10">
+      <div className="max-w-lg mx-auto px-5 pt-2 pb-8 sm:pt-4 sm:pb-10">
         <div className="space-y-5 text-foreground text-lg leading-[1.9]">
           <p className="animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
             網路上的連結，有些是真的，有些是詐騙。表面上很難分辨——但其實有簡單的方法。

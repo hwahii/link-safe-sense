@@ -13,7 +13,7 @@ const Footer = () => (
         </a>
       </p>
       <p className="text-sm text-muted-foreground">
-        本站不收集任何個人資料，所有資料僅儲存在您的裝置上。
+        本站不收集任何個人資料，<br />所有資料僅儲存在您的裝置上。
       </p>
     </div>
   </footer>

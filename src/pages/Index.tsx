@@ -62,7 +62,7 @@ const Index = () => {
         </div>
       </div>
 
-      <div className="max-w-lg mx-auto px-5 pt-4 pb-8 sm:pt-6 sm:pb-10">
+      <div className="max-w-lg mx-auto px-5 pt-2 pb-8 sm:pt-3 sm:pb-10">
         <div className="space-y-5 text-foreground text-lg leading-[1.9] text-center">
           <p className="animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
             網路上的連結，有些是真的，有些是詐騙。<br />

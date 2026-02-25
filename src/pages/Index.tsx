@@ -63,15 +63,19 @@ const Index = () => {
       </div>
 
       <div className="max-w-lg mx-auto px-5 pt-2 pb-8 sm:pt-4 sm:pb-10">
-        <div className="space-y-5 text-foreground text-lg leading-[1.9]">
+        <div className="space-y-5 text-foreground text-lg leading-[1.9] text-center">
           <p className="animate-fade-in" style={{ animationDelay: "0.1s", animationFillMode: "both" }}>
-            網路上的連結，有些是真的，有些是詐騙。表面上很難分辨——但其實有簡單的方法。
+            網路上的連結，有些是真的，有些是詐騙。<br />
+			表面上很難分辨——但其實有簡單的方法。
           </p>
           <p className="animate-fade-in" style={{ animationDelay: "0.2s", animationFillMode: "both" }}>
-            只要學會看懂網址裡的<strong>「門牌」</strong>，就能判斷一個連結安不安全。
+            只要學會看懂網址裡的<strong>「門牌」</strong>，<br />
+			就能判斷一個連結安不安全。
           </p>
           <p className="animate-fade-in" style={{ animationDelay: "0.3s", animationFillMode: "both" }}>
-            不用懂電腦，不用安裝任何東西。七篇小知識，再也不怕誤點詐騙連結。先測測看你目前的判斷力，或直接開始學習：
+            不用懂電腦，不用安裝任何東西。<br />
+			七篇小知識，再也不怕誤點詐騙連結。<br />
+			讓我們開始吧！
           </p>
         </div>
 

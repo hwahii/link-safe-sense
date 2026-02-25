@@ -35,15 +35,15 @@ const Index = () => {
     />
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-b from-primary/8 via-primary/4 to-background pt-12 pb-8 sm:pt-20 sm:pb-12">
+      <div className="relative overflow-hidden bg-gradient-to-b from-primary/8 via-primary/4 to-background pt-6 pb-6 sm:pt-16 sm:pb-10">
         <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
           <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute -bottom-16 -left-16 w-48 h-48 rounded-full bg-primary/5 blur-3xl" />
         </div>
 
         <div className="relative max-w-lg mx-auto px-5">
-          <div className="text-center mb-8 animate-fade-in">
-            <div className="inline-flex items-center justify-center w-20 h-20 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/30 mb-6 shadow-md ring-1 ring-primary/10">
+          <div className="text-center mb-4 animate-fade-in">
+            <div className="inline-flex items-center justify-center w-16 h-16 sm:w-24 sm:h-24 rounded-2xl bg-gradient-to-br from-primary/15 to-primary/30 mb-4 shadow-md ring-1 ring-primary/10">
               <Shield className="w-10 h-10 sm:w-12 sm:h-12 text-primary" />
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4">

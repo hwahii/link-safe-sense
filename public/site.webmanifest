@@ -1,0 +1,28 @@
+{
+  "name": "學會分辨詐騙連結",
+  "short_name": "詐騙連結辨識",
+  "description": "七篇簡易教學帶你學會看懂網址門牌、分辨詐騙連結",
+  "start_url": "/link-safe-sense/",
+  "scope": "/link-safe-sense/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3da861",
+  "icons": [
+    {
+      "src": "/link-safe-sense/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/link-safe-sense/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/link-safe-sense/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
